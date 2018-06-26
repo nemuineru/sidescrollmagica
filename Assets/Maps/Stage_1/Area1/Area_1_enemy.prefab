@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1424506152160494}
+  m_IsPrefabParent: 1
+--- !u!1 &1424506152160494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4062214232277934}
+  - component: {fileID: 114693150820974150}
+  m_Layer: 0
+  m_Name: Area_1_enemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4062214232277934
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1424506152160494}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114693150820974150
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1424506152160494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d9cbee4e7d5bd543a6ff9ad08abb855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MapResourceCSS: {fileID: 4900000, guid: 6e0642472e3882a468d94cd75e254a7f, type: 3}
+  MapChips:
+  - {fileID: 1912195821397720, guid: f32c603bfa5a226469a413df0be778cb, type: 2}
+  - {fileID: 1344894916905526, guid: ee09b12f3562a634cba5182def3ec71c, type: 2}
+  - {fileID: 1477321246405020, guid: 471f239e29e402944a42ce045ad2cd72, type: 2}
+  DefaultTile: {fileID: 1257601850994892, guid: 2f6cd23cbc941294ba58c4bc633bc9a3,
+    type: 2}
+  setMapGlobalSize: 0

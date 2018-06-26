@@ -9,6 +9,7 @@ public class MapGenerate : MonoBehaviour {
     public TextAsset MapResourceCSS;
     public GameObject[] MapChips;
     public GameObject DefaultTile;
+    public bool setMapGlobalSize;
 
     GameObject[,] maps;
 
@@ -38,6 +39,7 @@ public class MapGenerate : MonoBehaviour {
         maps = new GameObject[MapLength, MapHeight];
         Debug.Log(MapLength + "," + MapHeight);
 
+        if(setMapGlobalSize)
         Camera.main.GetComponent<CameraToScript>().WorldSize = new Vector2Int(MapLength,MapHeight);
 
         for (int j = 0; j < MapHeight; j++)
