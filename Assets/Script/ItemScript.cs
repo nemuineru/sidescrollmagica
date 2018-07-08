@@ -30,7 +30,6 @@ public class ItemScript : MonoBehaviour {
                 Audi.clip = Audios;
                 Audi.Play();
             }
-            GlobalSC.GetComponent<ScoreComponent>().Player1SC += score;
             Destroy(gameObject);
         }
     }

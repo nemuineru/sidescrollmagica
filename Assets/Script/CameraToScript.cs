@@ -33,15 +33,15 @@ public class CameraToScript : MonoBehaviour {
         Vector2 ScreenWPos_RU = 
             new Vector2(MainPos.x + Camera.main.rect.size.x * 2 * Camera.main.aspect,
             MainPos.y + Camera.main.rect.size.y * 2);
-        if (ScreenWPos_LD.x + ((WorldSize.x - 1) / 2) * Basesprite.bounds.size.x < 0 ||
-            ScreenWPos_RU.x - ((WorldSize.x - 1) / 2) * Basesprite.bounds.size.x > 0) {
-            MainPos.x = ((WorldSize.x - 1) / 2 * Basesprite.bounds.size.x -
+        if (ScreenWPos_LD.x + ((WorldSize.x - 3f) / 2) * Basesprite.bounds.size.x < 0 ||
+            ScreenWPos_RU.x - ((WorldSize.x - 3f) / 2) * Basesprite.bounds.size.x > 0) {
+            MainPos.x = ((WorldSize.x - 3f) / 2 * Basesprite.bounds.size.x -
                 Camera.main.rect.size.x * 2 * Camera.main.aspect) * Mathf.Sign(MainPos.x);
         }
-        if (ScreenWPos_LD.y + ((WorldSize.y - 1) / 2) * Basesprite.bounds.size.y < 0 ||
-            ScreenWPos_RU.y - ((WorldSize.y - 1) / 2) * Basesprite.bounds.size.y > 0)
+        if (ScreenWPos_LD.y + ((WorldSize.y - 1f) / 2) * Basesprite.bounds.size.y < 0 ||
+            ScreenWPos_RU.y - ((WorldSize.y - 1f) / 2) * Basesprite.bounds.size.y > 0)
         {
-            MainPos.y = ((WorldSize.y - 1) / 2 * Basesprite.bounds.size.y -
+            MainPos.y = ((WorldSize.y - 1f) / 2 * Basesprite.bounds.size.y -
                 Camera.main.rect.size.y * 2) * Mathf.Sign(MainPos.y);
         }
         if (Camera.main.rect.size.x * 2 * Camera.main.aspect >

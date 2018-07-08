@@ -17,8 +17,9 @@ public class PlayerMoving : MonoBehaviour {
     {
         public int Life, LifeMax;
         public float InvisTime, InvisMaxTime;
-        public float speed = 0, jumppower = 0, CastTime = 0;
+        public float speed = 0, jumppower = 0, CastTime_SP = 0, CastTime_EX = 0;
         public int AirjumpNum = 1;
+        public float castingTime;
     }
     public bool Damaged;
     public Vector2 PlayerLDEdge, PlayerRDEdge;
@@ -81,7 +82,7 @@ public class PlayerMoving : MonoBehaviour {
         string MagType = "Short";
         while (Application.isPlaying)
         {
-
+            
             if (Input.GetButtonUp("Magic"))
             {
                 Vector2 PlayerFacing = new Vector3(1f, 0f) * transform.localScale.x;
@@ -115,13 +116,13 @@ public class PlayerMoving : MonoBehaviour {
             }
 
             //AttackPressedの値で出せる魔法が決まる。
-            if (AttackPressed > status.CastTime * 3)
+            if (AttackPressed > status.CastTime_EX)
             {
                 SpriteMat.SetFloat("_Val", AttackPressed * 50 % 5 + 1);
                 MagType = "Super";
                 Debug.Log("Super");
             }
-            else if (AttackPressed > status.CastTime / 2)
+            else if (AttackPressed > status.CastTime_SP)
             {
                 SpriteMat.SetFloat("_Val", AttackPressed * 25 % 5 + 1);
                 MagType = "Long";
@@ -184,6 +185,7 @@ public class PlayerMoving : MonoBehaviour {
             }
 
 
+            status.castingTime = AttackPressed;
             yield return null;
         }
     }

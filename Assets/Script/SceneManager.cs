@@ -16,8 +16,11 @@ public class SceneManager : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        fade = GameObject.Find("ViewTransit").GetComponent<Fade>();
-        StartCoroutine("ExitAndEnter");
+        if(collision.tag == "Player")
+        {
+            fade = GameObject.Find("ViewTransit").GetComponent<Fade>();
+            StartCoroutine("ExitAndEnter");
+        }
     }
 
     AudioSource Audio;
