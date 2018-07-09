@@ -10,8 +10,8 @@ public class ItemScript : MonoBehaviour {
     AudioSource Audi;
     // Use this for initialization
     void Start () {
-        GlobalSC = GameObject.Find("Status");
-         Audi = GameObject.Find("Status").GetComponent<AudioSource>();
+        GlobalSC = GameObject.Find("Score");
+         Audi = GameObject.Find("Score").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
