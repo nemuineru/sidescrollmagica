@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyAttacking_1 : MonoBehaviour {
 
+
+
     public enum AttackType{
         Collisions,
         Shooting
@@ -13,6 +15,7 @@ public class EnemyAttacking_1 : MonoBehaviour {
 
     EnemyStatus status;
     Animator animator;
+    Rigidbody2D rigidbody2D;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
