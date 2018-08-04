@@ -16,10 +16,11 @@ public class UniqueEnemyMoving_1 : MonoBehaviour {
 
 
     Rigidbody2D rigidbody2D;
-
+    BoxCollider2D HitBox;
     GameObject Player;
     // Use this for initialization
     void Start () {
+        HitBox = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
         Player = GameObject.FindGameObjectWithTag("Player");
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -66,7 +67,6 @@ public class UniqueEnemyMoving_1 : MonoBehaviour {
                 case AI.Move:
                     rigidbody2D.velocity = Vector2.right *
                         Mathf.Sign(Player.transform.position.x - transform.position.x);
-                    Debug.Log("Moving");
                     break;
                 default:
                     rigidbody2D.velocity = Vector2.zero;

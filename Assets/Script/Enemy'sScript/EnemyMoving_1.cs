@@ -125,4 +125,22 @@ public class EnemyMoving_1 : MonoBehaviour {
             transform.localScale = new Vector3(-1, 1, 1);
         }
     }
+
+    bool TerrainNearby(Vector2 pos1, Vector2 Direction, int layerMask, float CollideDist)
+    {
+        Ray2D ray1 = new Ray2D();
+        ray1.direction = Direction;
+        ray1.origin = (Vector2)transform.position + pos1;
+        RaycastHit2D Wall_1 = Physics2D.Raycast(ray1.origin, ray1.direction, 100f, layerMask);
+        if ((Wall_1.distance > CollideDist || Wall_1.collider == null))
+        {
+            Debug.DrawLine(ray1.origin, Wall_1.point, new Color(1f, 0, 0));
+            return false;
+        }
+        else
+        {
+            Debug.DrawLine(ray1.origin, Wall_1.point, new Color(0, 1f, 1f));
+            return true;
+        }
+    }
 }
