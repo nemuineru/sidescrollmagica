@@ -16,6 +16,7 @@ public class BackGroundToCamera : MonoBehaviour
         public Vector2 MovesTo;
         public bool isBGloops;
         public bool isStableOnCamera;
+        public bool isStableOnStage;
     }
     public bool isLoopCreated = false;
     public backGroundProperty BGproperty;
@@ -83,7 +84,7 @@ public class BackGroundToCamera : MonoBehaviour
             {
                 transform.position = mainCamera.transform.position;
             }
-            else
+            else if(!BGproperty.isStableOnStage)
             {
                 transform.position = (Vector2)mainCamera.transform.position + MainPos;
             }

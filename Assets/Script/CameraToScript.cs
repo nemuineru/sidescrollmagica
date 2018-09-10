@@ -54,6 +54,6 @@ public class CameraToScript : MonoBehaviour {
         }
 
         //実際に代入。
-        transform.position = (Vector3)MainPos + new Vector3(0,0,-5);
+        transform.position = (Vector3)MainPos + new Vector3(0,0,-10);
     }
 }
