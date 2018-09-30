@@ -305,8 +305,10 @@
     <Compile Include="Assets\Fade\Scripts\FadeUI.cs" />
     <Compile Include="Assets\Fade\Scripts\IFade.cs" />
     <Compile Include="Assets\Script\BackGroundToCamera.cs" />
+    <Compile Include="Assets\Script\BaseScoreItems.cs" />
     <Compile Include="Assets\Script\CameraToScript.cs" />
     <Compile Include="Assets\Script\CsvReader.cs" />
+    <Compile Include="Assets\Script\EnemyHitComp_RefTo.cs" />
     <Compile Include="Assets\Script\Enemy'sScript\EnemyAttacking_1.cs" />
     <Compile Include="Assets\Script\Enemy'sScript\EnemyMoving_1.cs" />
     <Compile Include="Assets\Script\EnemyStatus.cs" />

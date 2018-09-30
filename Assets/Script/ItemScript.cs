@@ -26,7 +26,7 @@ public class ItemScript : MonoBehaviour {
             TerrainNearby(new Vector2(0, -size_y), Vector2.down, Mask.value))
         {
             if (Audios != null) {
-                Debug.Log("Get");
+                Debug.Log("Got : " + score);
                 Audi.clip = Audios;
                 Audi.Play();
             }

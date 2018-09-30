@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class UniqueEnemyAttack_1 : MonoBehaviour {
 
-    public enum AttackType
-    {
-        Golems
-    }
-    public AttackType Type;
-    public GameObject[] Things;
-    public GameObject[] Shot;
+
+    public BoxCollider2D[] Colliders; 
+
 
     EnemyStatus status;
     Animator animator;
@@ -19,16 +15,6 @@ public class UniqueEnemyAttack_1 : MonoBehaviour {
     GameObject Player;
     // Use this for initialization
     void Start () {
-        animator = GetComponent<Animator>();
-        Player = GameObject.FindGameObjectWithTag("Player");
-        rigidbody2D = GetComponent<Rigidbody2D>();
-        switch (Type) { 
-        case AttackType.Golems:
-                StartCoroutine("AtkType_Golem");
-                break;
-            default:
-                break;
-        }
     }
 	
 	// Update is called once per frame
@@ -40,5 +26,7 @@ public class UniqueEnemyAttack_1 : MonoBehaviour {
 
         yield return null;
     }
+
+    
 
 }

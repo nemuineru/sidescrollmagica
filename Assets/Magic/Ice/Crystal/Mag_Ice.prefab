@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 95345908164406152}
   - component: {fileID: 50434311690526486}
   - component: {fileID: 61729861637432118}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Mag_Ice
   m_TagString: Player's Bullet
   m_Icon: {fileID: 0}

@@ -255,7 +255,11 @@ public class PlayerMoving : MonoBehaviour {
 
             if ((Damaged == true) || (status.InvisTime > 0))
             {
-                Damaged = false;
+                if (Damaged == true)
+                {
+                    audio.PlayOneShot(Sound.Hurt);
+                    Damaged = false;
+                }
                 status.InvisTime += Time.deltaTime;
                 SpriteMat.SetColor("_Color", new Color
                     (1

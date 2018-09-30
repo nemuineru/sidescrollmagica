@@ -28,14 +28,25 @@ public class WeaponBehavior : MonoBehaviour
         bool isHit = true;
         Debug.Log(((int)Mathf.Pow(2, collision.gameObject.layer) & PassThrough.value));
             if ( ((int)Mathf.Pow(2,collision.gameObject.layer) & PassThrough.value) 
-            == (int)Mathf.Pow(2, collision.gameObject.layer)) {
+            == (int)Mathf.Pow(2, collision.gameObject.layer)
+            || (collision.transform.tag == "Enemy" && tag == "Enemy's Bullet")
+            || (collision.transform.tag == "Player" && tag == "Player's Bullet")) {
                 isHit = false;
             }
-            if (collision.transform.tag == "Enemy" && tag == "Player's Bullet")
+        if (collision.transform.tag == "Enemy" && tag == "Player's Bullet")
+        {
+            EnemyStatus status;
+            if (collision.GetComponent<EnemyHitComp_RefTo>() != null)
             {
-                EnemyStatus status = collision.transform.GetComponent<EnemyStatus>();
+                status = collision.transform.GetComponent<EnemyHitComp_RefTo>().Status;
                 status.status.hp -= FirePower;
             }
+            else
+            {
+                status = collision.transform.root.GetComponent<EnemyStatus>();
+                status.status.hp -= FirePower;
+            }
+        }
 
             if (collision.transform.tag == "Player" && tag == "Enemy's Bullet")
         {

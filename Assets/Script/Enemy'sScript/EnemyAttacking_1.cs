@@ -4,30 +4,26 @@ using UnityEngine;
 
 public class EnemyAttacking_1 : MonoBehaviour {
 
-
-
     public enum AttackType{
         Collisions,
         Shooting
     }
     public AttackType Type;
-    public GameObject[] Shot;
+    public GameObject Shot;
+    public int DamageNum, Impact; 
 
     EnemyStatus status;
     Animator animator;
     Rigidbody2D rigidbody2D;
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player" && Type == AttackType.Collisions) {
-            PlayerMoving player = collision.gameObject.GetComponent<PlayerMoving>();
-            player.Damaged = true;
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity += GetComponent<Rigidbody2D>().velocity * 3;
-        }
-    }
+    public BoxCollider2D[] Colliders;
+    public ContactFilter2D filter2D;
+    Collider2D[] result;
 
+    
     // Use this for initialization
     void Start () {
+        result = new Collider2D[10];
         status = GetComponent<EnemyStatus>();
         animator = GetComponent<Animator>();
         switch (Type)
@@ -44,8 +40,28 @@ public class EnemyAttacking_1 : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        foreach (BoxCollider2D Collider in Colliders)
+        {
+            result = new Collider2D[10];
+            if (Collider != null)
+            {
+                int I = Collider.OverlapCollider(filter2D, result);
+            }
+            foreach (Collider2D ColResult in result)
+            {
+                if (ColResult != null) {
+                    if (ColResult.gameObject.tag == "Player")
+                    {
+                        Damaging(ColResult.transform.root.gameObject);
+                        Debug.Log("Hit");
+                        break;
+                    }
+                }
+                else
+                    Debug.Log("Nan :" + Collider.name);
+            }
+        }
+    }
 
 
     IEnumerator A_Shooting()
@@ -56,7 +72,7 @@ public class EnemyAttacking_1 : MonoBehaviour {
             shoot += Time.deltaTime;
             if (shoot > status.status.AttackSpeed && Shot != null) {
                 shoot = 0;
-                Instantiate(Shot[0],transform.position,Quaternion.Euler(0,0,0));
+                Instantiate(Shot,transform.position,Quaternion.Euler(0,0,0));
                 animator.SetBool("IsAttack",true);
             }
             else
@@ -67,4 +83,17 @@ public class EnemyAttacking_1 : MonoBehaviour {
         }
     }
 
+    public void Damaging(GameObject Player)
+    {
+        PlayerMoving player = Player.GetComponent<PlayerMoving>();
+        if (player.status.InvisTime == 0)
+        {
+            player.Damaged = true;
+            player.status.Life -= DamageNum;
+            Player.gameObject.GetComponent<Rigidbody2D>().velocity =
+                Mathf.Sign(Player.transform.localScale.x) * Vector2.left * Impact * 4
+                +
+                Vector2.up * Impact * 2;
+         }
+    }
 }

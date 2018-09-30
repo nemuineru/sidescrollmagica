@@ -3,7 +3,6 @@ PlayerPath?
 C:/Users/nemuru/Documents/Producted Games/Magear_V0.02/Magear_V0.02.exe
 SceneListBegin?
 Assets/Maps/Stage_1/Startpoint/StartPoint.unity
-Assets/Maps/Stage_1/Area1/Area_1.unity
 SceneListEnd?
 bda1252b4343588773ea65124522f1c3 Assembly-CSharp.dll:.BackGroundToCamera
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
@@ -115,6 +114,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 1c642220816aae650ff29d8e1881b236 Assembly-CSharp.dll:.FadeUI
+b97c7c0cc66f2a6093c9bc16b6677d4d Assembly-CSharp.dll:.BaseScoreItems
 322cb40e1e282f28af980cbef7922a90 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 c7dbeb67123897b2940c79fd912262bf Assembly-CSharp.dll:.MapGenerate
@@ -128,7 +128,8 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 289f804410228b401cb3ca05585e91b4 Assembly-CSharp.dll:.UniqueEnemyMoving_1
 60c588fff7abb66bd7cf95cae3a10ac6 Assembly-CSharp.dll:.CsvReader
 b3db8985047639701ba2438bf8754534 Assembly-CSharp.dll:.OneShotAnim
-a279f6bee42499f9034ddae818e67e25 Assembly-CSharp.dll:.EnemyAttacking_1
+f949195a56cd000e1850184ea5c8cb7a Assembly-CSharp.dll:.EnemyHitComp_RefTo
+6b50673f0b762b687df00733a7c5d913 Assembly-CSharp.dll:.EnemyAttacking_1
 091df67caa645e29e92f7733507af3c8 Assembly-CSharp.dll:.WeaponBehavior
 f0aa09ef553f966daa90ad5bfc741573 Assembly-CSharp.dll:.FadeImage
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
@@ -169,4 +170,4 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 f2f090a3662b27b4149f362d6cc4825c Assembly-CSharp.dll:.EnemyMoving_1
 eb6bc78517e540ca4e9ffbcce69a656c Assembly-CSharp.dll:.PlayerMoving
-597c38b7e8e026116fd7167c3bf1956b Assembly-CSharp.dll:.EnemyStatus
+8e5ddbea109dc268a1e66cb73216e7e7 Assembly-CSharp.dll:.EnemyStatus

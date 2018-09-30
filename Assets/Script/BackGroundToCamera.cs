@@ -65,13 +65,13 @@ public class BackGroundToCamera : MonoBehaviour
             //BGPosの動作範囲はワールド上のスプライトのサイズ - maincameraのサイズになる｡
             //もしカメラが背景からはみ出るときそれを止める。
             Vector2 ScreenWPos_LD =
-                new Vector2(cameraToScript.MainPos.x - mainCamera.rect.size.x *
+                new Vector2(cameraToScript.TransPos.x - mainCamera.rect.size.x *
                 2 * mainCamera.aspect,
-                cameraToScript.MainPos.y - mainCamera.rect.size.y * 4);
+                cameraToScript.TransPos.y - mainCamera.rect.size.y * 4);
             Vector2 ScreenWPos_RU =
-                new Vector2(cameraToScript.MainPos.x + mainCamera.rect.size.x *
+                new Vector2(cameraToScript.TransPos.x + mainCamera.rect.size.x *
                 2 * mainCamera.aspect,
-                cameraToScript.MainPos.y + mainCamera.rect.size.y * 4);
+                cameraToScript.TransPos.y + mainCamera.rect.size.y * 4);
 
             Vector2 TransitSize = new Vector2
                 (renderer.sprite.bounds.size.x * transform.localScale.x - mainCamera.rect.size.x * 4 * mainCamera.aspect,

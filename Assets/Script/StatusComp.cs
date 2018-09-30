@@ -12,7 +12,7 @@ public class StatusComp : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        Player = GameObject.Find("Player");
         PlayerStatus = Player.GetComponent<PlayerMoving>();
         text = GetComponent<Text>();
     }

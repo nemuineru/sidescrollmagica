@@ -52,7 +52,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.4012549, g: 0.6698113, b: 0.6548313, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -63,7 +63,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2
+  orthographic size: 1.612915
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -97,7 +97,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf15427a3c6a52343a91f4892511a456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TransPos: {x: 0, y: 0}
+  MainPos: {x: 0, y: 0}
+  CamShift: {x: 0, y: 0.6}
+  PLScrlDeadzone: {x: 0.4, y: 0.2}
   WorldSize: {x: 50, y: 50}
+  transitionVel: 1.8
+  PlV_transitvel: 0.8
   Basesprite: {fileID: 21300000, guid: cb0acc233106d3a418b6047f3f67c3a2, type: 3}
 --- !u!124 &124556024118155470
 Behaviour:
