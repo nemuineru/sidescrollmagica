@@ -16,7 +16,7 @@ public class ScenesUniqueObject : MonoBehaviour {
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(this);
     }
 	
 	// Update is called once per frame

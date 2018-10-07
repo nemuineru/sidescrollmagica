@@ -6,12 +6,18 @@ using UnityEngine.UI;
 public class StatusComp : MonoBehaviour {
 
     public GameObject HP, MP;
-    GameObject Player;
+    public GameObject Player;
     Text text;
     PlayerMoving PlayerStatus;
 
-	// Use this for initialization
-	void Start () {
+    private void OnLevelWasLoaded(int level)
+    {
+        Player = GameObject.Find("Player");
+        PlayerStatus = Player.GetComponent<PlayerMoving>();
+    }
+
+    // Use this for initialization
+    void Start () {
         Player = GameObject.Find("Player");
         PlayerStatus = Player.GetComponent<PlayerMoving>();
         text = GetComponent<Text>();

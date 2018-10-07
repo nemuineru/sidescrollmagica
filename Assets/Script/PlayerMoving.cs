@@ -39,6 +39,17 @@ public class PlayerMoving : MonoBehaviour {
     Vector2 PlayerFacing;
 
     Material SpriteMat;
+    //Void AwakeでステータスUIを読み込む。
+    void Awake()
+    {
+        if (GameObject.Find("UI_MainGame") == null) {
+
+             GameObject UIs;
+            UIs = (GameObject)Resources.Load("UI/UI_MainGame");
+            Instantiate(UIs);
+        }    
+    }
+
     // コルーチンを使用してキャラの動作を行う
     void Start() {
         SpriteMat = GetComponent<SpriteRenderer>().material;
@@ -218,8 +229,14 @@ public class PlayerMoving : MonoBehaviour {
 
             //アニメスピードはキャラのスピードにより変化。
             if (States.fullPathHash == Animator.StringToHash("Base Layer.Walking"))
-                Animations.speed = 3f * (Mathf.Abs(rigid2d.velocity.x) / status.speed);
-            else {
+            {
+                if (OnGround)
+                    Animations.speed = 3f * (Mathf.Abs(rigid2d.velocity.x) / status.speed);
+                else
+                    Animations.speed = 0.1f;
+            }
+            else
+            {
                 Animations.speed = 1f;
             }
 

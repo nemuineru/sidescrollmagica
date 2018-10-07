@@ -1,0 +1,12 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Infos_ZURIOCHI
+  m_Controller: {fileID: 9100000, guid: c45c01c4c703f754ebe08ddf497bfcb8, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: ae303c79cf1e1f94e882b71ff6706656, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 402f3feaafc112d4abaa1c449f649868, type: 2}

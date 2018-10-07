@@ -12,9 +12,14 @@ public class Transition_StartUP : MonoBehaviour {
     {
         StartCoroutine("FadingStart");
     }
+    void Awake() {
+        UnityEngine.SceneManagement.SceneManager.activeSceneChanged +=
+            OnActiveSceneChanged;
+        StartCoroutine("FadingStart");
+    }
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         UnityEngine.SceneManagement.SceneManager.activeSceneChanged += 
             OnActiveSceneChanged;

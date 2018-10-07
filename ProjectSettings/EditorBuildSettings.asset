@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Maps/Stage_1/HowToPlay/How_to_Play.unity
+    guid: f07ec8b9b9785194888e0297144fb582
+  - enabled: 1
     path: Assets/Maps/Stage_1/Startpoint/StartPoint.unity
     guid: 7952ebdf05b451d4790ad578af337dbb
   m_configObjects: {}

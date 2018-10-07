@@ -18,6 +18,7 @@ public class EnemyStatus : MonoBehaviour {
     int C500, C100, C50, C10, C5, C1;
 	// Use this for initialization
 	void Start () {
+        if(GameObject.Find("BaseItems")  != null)
         BaseItem = GameObject.Find("BaseItems").GetComponent<BaseScoreItems>();
 	}
 	

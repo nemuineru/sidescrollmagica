@@ -59,4 +59,30 @@ public class SceneManager : MonoBehaviour {
         }
         yield return null;
     }
+
+    IEnumerator EnterFirst()
+    {
+        if (EnteringSound != null)
+        {
+            Audio.clip = EnteringSound;
+            Audio.Play();
+        }
+        Time.timeScale = 0;
+        fade.FadeIn(2f);
+        yield return new WaitForSecondsRealtime(2f);
+        if (NextStageName != null && SceneUtility.GetBuildIndexByScenePath(NextStageName) != -1)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(NextStageName);
+            fade.FadeOut(2f);
+            yield return new WaitForSecondsRealtime(2f);
+            Time.timeScale = 1;
+        }
+        else
+        {
+            fade.FadeOut(2f);
+            yield return new WaitForSecondsRealtime(2f);
+            Time.timeScale = 1;
+        }
+        yield return null;
+    }
 }

@@ -1,7 +1,8 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/nemuru/Documents/Producted Games/Magear_V0.02/Magear_V0.02.exe
+C:/Users/gakusei/Documents/Unity_Compailed/Magear_V0.03/Magear_V0.03.exe
 SceneListBegin?
+Assets/Maps/Stage_1/HowToPlay/How_to_Play.unity
 Assets/Maps/Stage_1/Startpoint/StartPoint.unity
 SceneListEnd?
 bda1252b4343588773ea65124522f1c3 Assembly-CSharp.dll:.BackGroundToCamera
@@ -85,7 +86,7 @@ f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 c00590714085c84f242afb4a6f7d419c Assembly-CSharp.dll:.ItemScript
-03bb21de50f59c6318a5a4c28f07c1e6 Assembly-CSharp.dll:.UniqueEnemyAttack_1
+8326ae96de4f65a2bcf5ab9cec97ba71 Assembly-CSharp.dll:.UniqueEnemyAttack_1
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 cf455f7a806648c6ed4c7d3e3f8a0e03 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 13bdb7c23815c33a33b37b0ba8dd39be UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -124,12 +125,12 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 65ad643161350cf45c86412e4930e0d7 Assembly-CSharp.dll:.TileGenerate
-36fb934f6418e2aff1aa6906a0a476a7 Assembly-CSharp.dll:.StatusComp
+56ce9fd9b4c6b584c5f6c87065ab95c3 Assembly-CSharp.dll:.StatusComp
 289f804410228b401cb3ca05585e91b4 Assembly-CSharp.dll:.UniqueEnemyMoving_1
 60c588fff7abb66bd7cf95cae3a10ac6 Assembly-CSharp.dll:.CsvReader
 b3db8985047639701ba2438bf8754534 Assembly-CSharp.dll:.OneShotAnim
 f949195a56cd000e1850184ea5c8cb7a Assembly-CSharp.dll:.EnemyHitComp_RefTo
-6b50673f0b762b687df00733a7c5d913 Assembly-CSharp.dll:.EnemyAttacking_1
+0a64bad1afcfc50322f7b2288ef09ae8 Assembly-CSharp.dll:.EnemyAttacking_1
 091df67caa645e29e92f7733507af3c8 Assembly-CSharp.dll:.WeaponBehavior
 f0aa09ef553f966daa90ad5bfc741573 Assembly-CSharp.dll:.FadeImage
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
@@ -147,7 +148,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PlayerStart
-e66a9e510745353d3f417ec65a4d8ce7 Assembly-CSharp.dll:.CameraToScript
+3e510f717cf82d2188d51025d4b1d720 Assembly-CSharp.dll:.CameraToScript
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 f02726adeff0a3ec5905565234b372da UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 64eb32cc721b1cc68a91ed57461e188c UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender

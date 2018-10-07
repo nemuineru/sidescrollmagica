@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadingObject: {fileID: 0}
-  NextStageName: Area_1
+  NextStageName: How_to_Play
   ConnectsTo: {x: 4, y: 4}
   EnteringSound: {fileID: 0}
   fade: {fileID: 0}
