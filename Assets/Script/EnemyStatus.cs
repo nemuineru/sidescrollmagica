@@ -8,6 +8,7 @@ public class EnemyStatus : MonoBehaviour {
     public class Status {
         public int hp, coins;
         public float MoveSpeed, AttackSpeed;
+        public GameObject DeathExplod;
         public GameObject[] Itemcontain;
         public bool IsNotDropMoney;
     }
@@ -25,6 +26,8 @@ public class EnemyStatus : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (status.hp <= 0) {
+            if(status.DeathExplod != null)
+            Instantiate(status.DeathExplod,transform.position,transform.rotation);
             if (status.Itemcontain != null)
                 for (int i = 0; i < status.Itemcontain.Length; i++) {
                     GameObject Items = Instantiate(status.Itemcontain[i]

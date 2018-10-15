@@ -10,20 +10,17 @@ public class Transition_StartUP : MonoBehaviour {
 
     void OnActiveSceneChanged(Scene scenePrev, Scene sceneNext)
     {
-        StartCoroutine("FadingStart");
+        StartCoroutine("Fadingin");
     }
     void Awake() {
         UnityEngine.SceneManagement.SceneManager.activeSceneChanged +=
             OnActiveSceneChanged;
-        StartCoroutine("FadingStart");
+        StartCoroutine("FadingOut");
     }
 
     // Use this for initialization
     void Start ()
     {
-        UnityEngine.SceneManagement.SceneManager.activeSceneChanged += 
-            OnActiveSceneChanged;
-        StartCoroutine("FadingStart");
     }
 	
 	// Update is called once per frame
@@ -31,12 +28,23 @@ public class Transition_StartUP : MonoBehaviour {
 
     }
 
-    IEnumerator FadingStart() {
+    IEnumerator Fadingin() {
         Debug.Log("Start");
         Time.timeScale = 0;
         fade = GetComponent<Fade>();
         fade.FadeIn(0f);
         fade.FadeOut(trasitiontime);
+        Time.timeScale = 1f;
+        yield return null;
+    }
+
+    IEnumerator FadingOut()
+    {
+        Debug.Log("Start");
+        Time.timeScale = 0;
+        fade = GetComponent<Fade>();
+        fade.FadeOut(0f);
+        fade.FadeIn(trasitiontime);
         Time.timeScale = 1f;
         yield return null;
     }

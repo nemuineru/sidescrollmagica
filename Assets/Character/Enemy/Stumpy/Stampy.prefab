@@ -192,6 +192,8 @@ MonoBehaviour:
     coins: 75
     MoveSpeed: 0.5
     AttackSpeed: 0
+    DeathExplod: {fileID: 1782295462775902, guid: 9ba23c4c6f9c5b84ba4bd13906e23c63,
+      type: 2}
     Itemcontain: []
     IsNotDropMoney: 0
 --- !u!114 &114954145639350990
