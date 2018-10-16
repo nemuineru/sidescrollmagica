@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4736765612447734}
   - component: {fileID: 61066689909527684}
-  - component: {fileID: 82210455754287276}
   - component: {fileID: 114912302116753836}
+  - component: {fileID: 82210455754287276}
   m_Layer: 0
   m_Name: NextLevels
   m_TagString: Untagged
