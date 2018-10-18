@@ -1,0 +1,2 @@
+C:\Users\nemuru\Documents\GitHub\SideScrollMagica\Temp\UnityVS_obj\Debug\Unity.PackageManagerUI.Editor.csprojAssemblyReference.cache
+C:\Users\nemuru\Documents\GitHub\SideScrollMagica\Temp\UnityVS_obj\Debug\Unity.PackageManagerUI.Editor.csproj.CoreCompileInputs.cache

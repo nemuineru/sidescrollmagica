@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: UI-Fade-Cutout
   m_Shader: {fileID: 4800000, guid: d5b17613b5d88c2478da53bc9634bb9d, type: 3}
@@ -23,16 +23,16 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
-        m_Texture: {fileID: 2800000, guid: 184c3b7706c5c6c4180a03c31550b2a4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2155630f4cd644a4989b380d9842e214, type: 3}
         m_Scale: {x: 3, y: 3}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _ColorMask: 15
-    - _Range: 0.356
+    - _Range: 1
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
     m_Colors:
-    - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 0.14351194, g: 0.20184149, b: 0.23584908, a: 1}

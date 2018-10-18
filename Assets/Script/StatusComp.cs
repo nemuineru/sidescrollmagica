@@ -10,7 +10,7 @@ public class StatusComp : MonoBehaviour {
     Text text;
     PlayerMoving PlayerStatus;
 
-    private void OnLevelWasLoaded(int level)
+    void Awake()
     {
         Player = GameObject.Find("Player");
         PlayerStatus = Player.GetComponent<PlayerMoving>();

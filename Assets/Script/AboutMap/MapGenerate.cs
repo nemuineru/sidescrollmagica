@@ -25,10 +25,13 @@ public class MapGenerate : MonoBehaviour {
         MapData = gameObject.AddComponent<CsvReader>();
         connectSet = gameObject.AddComponent<TileConnectSet>();
         MapData.CsvResource = MapResourceCSS;
-        MapData.ReadData();
+        MapData.ReadData(); //CSSファイルから読み出し
+    
 
         MapLength = MapData.csvDatas[0].Length;
         MapHeight = MapData.csvDatas.Count;
+        //マップの高さと長さをCSVファイルから読み取る
+
 
         GameObject Room = gameObject;
         Room.layer = LayerMask.NameToLayer("Terrain");
@@ -37,7 +40,7 @@ public class MapGenerate : MonoBehaviour {
         CpCol2D.geometryType = CompositeCollider2D.GeometryType.Polygons;
         CpCol2D.vertexDistance = 0.16f;
         maps = new GameObject[MapLength, MapHeight];
-        Debug.Log(MapLength + "," + MapHeight);
+        //Debug.Log(MapLength + "," + MapHeight);
 
         if(setMapGlobalSize)
         Camera.main.GetComponent<CameraToScript>().WorldSize = new Vector2Int(MapLength,MapHeight);
@@ -66,7 +69,7 @@ public class MapGenerate : MonoBehaviour {
                     maps[i, j].transform.parent = Room.transform;
                 }
             }
-                    Debug.Log(j + "," + Debugs);
+                    //Debug.Log(j + "," + Debugs);
         }
         
     }

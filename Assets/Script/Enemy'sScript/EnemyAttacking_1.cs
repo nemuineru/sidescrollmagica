@@ -14,7 +14,7 @@ public class EnemyAttacking_1 : MonoBehaviour {
 
     EnemyStatus status;
     Animator animator;
-    Rigidbody2D rigidbody2D;
+    Rigidbody2D rigid2D;
 
     public BoxCollider2D[] Colliders;
     public ContactFilter2D filter2D;
@@ -57,8 +57,6 @@ public class EnemyAttacking_1 : MonoBehaviour {
                         break;
                     }
                 }
-                else
-                    Debug.Log("Nan :" + Collider.name);
             }
         }
     }

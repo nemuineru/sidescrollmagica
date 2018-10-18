@@ -10,7 +10,7 @@ public class UniqueEnemyAttack_1 : MonoBehaviour {
 
     EnemyStatus status;
     Animator animator;
-    Rigidbody2D rigidbody2D;
+    Rigidbody2D ridge2D;
 
     GameObject Player;
     // Use this for initialization

@@ -16,7 +16,7 @@ public class UniqueEnemyMoving_1 : MonoBehaviour {
 
 
     bool isAIChanged = false;
-    Rigidbody2D rigidbody2D;
+    Rigidbody2D ridge2D;
     BoxCollider2D HitBox;
     GameObject Player;
     // Use this for initialization
@@ -24,7 +24,7 @@ public class UniqueEnemyMoving_1 : MonoBehaviour {
         HitBox = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
         Player = GameObject.FindGameObjectWithTag("Player");
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        ridge2D = GetComponent<Rigidbody2D>();
         switch (Type)
         {
             case MoveType.Golems:
@@ -76,7 +76,7 @@ public class UniqueEnemyMoving_1 : MonoBehaviour {
                     {
                         ai = AI.MoveHorizontal;
                     }
-                    else if (terrainNear && ((PlayerHigh && Mathf.Abs(rigidbody2D.velocity.x) > 0.3
+                    else if (terrainNear && ((PlayerHigh && Mathf.Abs(ridge2D.velocity.x) > 0.3
                         && Random.Range(0, 50) < 20)||(Random.Range(0,100) < 5)))
                     {
                         ai = AI.MoveJump;
@@ -94,12 +94,12 @@ public class UniqueEnemyMoving_1 : MonoBehaviour {
 
             switch (ai){ //AIの挙動
                 case AI.MoveHorizontal:
-                    rigidbody2D.velocity = new Vector2(1.5f * -Mathf.Sign
+                    ridge2D.velocity = new Vector2(1.5f * -Mathf.Sign
                         (transform.position.x - Player.transform.position.x), 
-                        rigidbody2D.velocity.y);
+                        ridge2D.velocity.y);
                     break;
                 case AI.MoveJump:
-                    rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 4);
+                    ridge2D.velocity = new Vector2(ridge2D.velocity.x, 4);
                     break;
                 default:
                     break;
@@ -113,9 +113,9 @@ public class UniqueEnemyMoving_1 : MonoBehaviour {
     IEnumerator MovingScript() {
         while (Application.isPlaying)
         {
-            if(Mathf.Abs(rigidbody2D.velocity.x) > 0.05)
-            transform.localScale = new Vector2(1 * Mathf.Sign(rigidbody2D.velocity.x),1);
-            if (Mathf.Abs(rigidbody2D.velocity.x) > 0.05) {
+            if(Mathf.Abs(ridge2D.velocity.x) > 0.05)
+            transform.localScale = new Vector2(1 * Mathf.Sign(ridge2D.velocity.x),1);
+            if (Mathf.Abs(ridge2D.velocity.x) > 0.05) {
                 animator.SetBool("IsMoving", true);
             }
             else

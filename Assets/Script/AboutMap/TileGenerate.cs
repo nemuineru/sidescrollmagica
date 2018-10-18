@@ -9,14 +9,16 @@ public class TileGenerate : MonoBehaviour {
     public Vector2Int WorldPositions;
     public Vector2Int RoomPositions;
 
+
     public bool isEcoChanged; //そのタイル自体の環境が変わったか
-    public bool isDebug;
+    public bool isDebug, isSingleton;
     public enum TileType
     {
         PassableTerrain,
         ImpassableTerrain,
         Wall,
-        StaticObject
+        StaticObject,
+        Gate
     }
     public TileType tileType;
     [SerializeField]
@@ -28,8 +30,15 @@ public class TileGenerate : MonoBehaviour {
     {
         public string Tilename; //タイルの名前
         public Texture2D Texture; //タイルのテクスチャ
-        public Vector2Int TexSize = new Vector2Int(64,96);
-        public Vector2Int CutSize = new Vector2Int(32,32);
+        public Vector2Int TexSize = new Vector2Int(64, 96);
+        public Vector2Int CutSize = new Vector2Int(32, 32);
+
+        [SerializeField, Space(15)]
+
+        public StageComp StageConnectedTo; //ステージの選択
+        public Vector2Int ConnectTo; //ゲート使用時どこにつながるか
+        public bool isContactToGo = true;
+        public AudioClip EnteringSound, SteppingSound;//走ったときの音と侵入時の音
     }
     public int Db_GroupNum, Db_CutNum; 
     public bool[] TileWithin = new bool[9]; //タイル9周辺にタイル存在するか
@@ -67,12 +76,49 @@ public class TileGenerate : MonoBehaviour {
 
     Texture2D Tiles;
 
+    GameObject Systems;
+    GateManager SystemGate;
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player" && tileType == TileType.Gate && property.isContactToGo)
+        {
+            Systems = GameObject.Find("Systems");
+            SystemGate = Systems.GetComponent<GateManager>();
+            SystemGate.NextUp = property.StageConnectedTo;
+            SystemGate.EnteringSound = property.EnteringSound;
+            SystemGate.TransitTo = property.ConnectTo;
+            StartCoroutine(SystemGate.ExitAndEnter());
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && 
+            tileType == TileType.Gate && property.isContactToGo != true)
+        {
+            Systems = GameObject.Find("Systems");
+            SystemGate = Systems.GetComponent<GateManager>();
+            SystemGate.NextUp = property.StageConnectedTo;
+            SystemGate.EnteringSound = property.EnteringSound;
+            SystemGate.TransitTo = property.ConnectTo;
+            StartCoroutine(SystemGate.ExitAndEnter());
+        }
+    }
+
     private void Start()
     {
-        Tiles = TileCreate(property.Texture); //タイル画像を実際に生成
-        GetComponent<SpriteRenderer>().sprite
-            = Sprite.Create(Tiles, new Rect(Vector2.zero, Vector2.one * 32), Vector2.one / 2);
-        GetComponent<SpriteRenderer>().sprite.texture.filterMode = FilterMode.Point;
+        if (isSingleton != true)
+        {
+            Tiles = TileCreate(property.Texture); //タイル画像を実際に生成
+            GetComponent<SpriteRenderer>().sprite
+                = Sprite.Create(Tiles, new Rect(Vector2.zero, Vector2.one * 32), Vector2.one / 2);
+            GetComponent<SpriteRenderer>().sprite.texture.filterMode = FilterMode.Point;
+        }
+        if (tileType == TileType.Gate) {
+            GetComponent<Collider2D>().usedByComposite = false;
+            GetComponent<Collider2D>().isTrigger = true;
+        }
     }
 
 
@@ -86,7 +132,7 @@ public class TileGenerate : MonoBehaviour {
             = Sprite.Create(Tiles, new Rect(Vector2.zero, Vector2.one * 16), Vector2.one / 2);
            
         }
-        else if (isEcoChanged == true)　//タイル変更‥
+        else if (isEcoChanged == true && isSingleton != true)　//タイル変更‥
         {
             Tiles = TileCreate(property.Texture);
             GetComponent<SpriteRenderer>().sprite

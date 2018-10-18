@@ -30,7 +30,7 @@ public class PlayerMoving : MonoBehaviour {
 
     Rigidbody2D rigid2d;
     Animator Animations;
-    AudioSource audio;
+    AudioSource audioSource;
 
     WeaponStates weaponStates;
 
@@ -55,7 +55,7 @@ public class PlayerMoving : MonoBehaviour {
         SpriteMat = GetComponent<SpriteRenderer>().material;
         rigid2d = GetComponent<Rigidbody2D>();
         Animations = GetComponent<Animator>();
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         weaponStates = GetComponent<WeaponStates>();
 
         PlayerFacing = Vector2.right * Mathf.Sign(transform.localScale.x);
@@ -131,19 +131,19 @@ public class PlayerMoving : MonoBehaviour {
             {
                 SpriteMat.SetFloat("_Val", AttackPressed * 50 % 5 + 1);
                 MagType = "Super";
-                Debug.Log("Super");
+                //Debug.Log("Super");
             }
             else if (AttackPressed > status.CastTime_SP)
             {
                 SpriteMat.SetFloat("_Val", AttackPressed * 25 % 5 + 1);
                 MagType = "Long";
-                Debug.Log("Long");
+                //Debug.Log("Long");
             }
             else
             {
                 SpriteMat.SetFloat("_Val",1f);
                 MagType = "Short";
-                Debug.Log("Short");
+                //Debug.Log("Short");
             }
 
             // キャラクターのX方向の動作。
@@ -180,8 +180,8 @@ public class PlayerMoving : MonoBehaviour {
                            status.jumppower);
                 }
 
-                audio.clip = Sound.Jump;
-                audio.Play();
+                audioSource.clip = Sound.Jump;
+                audioSource.Play();
                 Instantiate(Sound.RunDust, transform.position + (Vector3)
                 (PlayerLDEdge + PlayerRDEdge) + new Vector3(0f, 0.01f), Quaternion.Euler(Vector3.zero));
 
@@ -274,7 +274,7 @@ public class PlayerMoving : MonoBehaviour {
             {
                 if (Damaged == true)
                 {
-                    audio.PlayOneShot(Sound.Hurt);
+                    audioSource.PlayOneShot(Sound.Hurt);
                     Damaged = false;
                 }
                 status.InvisTime += Time.deltaTime;

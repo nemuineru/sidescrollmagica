@@ -88,25 +88,27 @@ public class Fade : MonoBehaviour
 		}
 	}
 
-	public Coroutine FadeOut (float time, System.Action action)
+	public Coroutine FadeOut (float time, System.Action action, bool willStopAllCoroutines)
 	{
+        if(willStopAllCoroutines)
 		StopAllCoroutines ();
 		return StartCoroutine (FadeoutCoroutine (time, action));
 	}
 
-	public Coroutine FadeOut (float time)
+	public Coroutine FadeOut (float time, bool willStopAllCoroutines)
 	{
-		return FadeOut (time, null);
+		return FadeOut (time, null, willStopAllCoroutines);
 	}
 
-	public Coroutine FadeIn (float time, System.Action action)
-	{
-		StopAllCoroutines ();
+	public Coroutine FadeIn (float time, System.Action action, bool willStopAllCoroutines)
+    {
+        if (willStopAllCoroutines)
+            StopAllCoroutines ();
 		return StartCoroutine (FadeinCoroutine (time, action));
 	}
 
-	public Coroutine FadeIn (float time)
+	public Coroutine FadeIn (float time,bool willStopAllCoroutines)
 	{
-		return FadeIn (time, null);
+		return FadeIn (time, null, willStopAllCoroutines);
 	}
 }

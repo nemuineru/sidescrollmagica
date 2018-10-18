@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4056480843629300}
   - component: {fileID: 114342172593178708}
+  - component: {fileID: 114437032155136852}
   m_Layer: 0
   m_Name: How_to_Play_Enemy
   m_TagString: Untagged
@@ -59,3 +60,16 @@ MonoBehaviour:
   DefaultTile: {fileID: 1257601850994892, guid: 2f6cd23cbc941294ba58c4bc633bc9a3,
     type: 2}
   setMapGlobalSize: 0
+--- !u!114 &114437032155136852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1488219270698164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e898470fe97ae4498e1cc65c02f526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CsvResource: {fileID: 4900000, guid: 7a61a8619116a264d8af22cc99dbec33, type: 3}
+  height: 1560

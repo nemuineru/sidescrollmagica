@@ -20,9 +20,9 @@ public class BackGroundToCamera : MonoBehaviour
     }
     public bool isLoopCreated = false;
     public backGroundProperty BGproperty;
-    SpriteRenderer renderer;
+    SpriteRenderer SprRend;
     Camera mainCamera;
-    CameraToScript cameraToScript;
+    public CameraToScript cameraToScript;
 
     GameObject[] OtherLoopingBG;
     Coroutine MainCoroutine;
@@ -30,12 +30,11 @@ public class BackGroundToCamera : MonoBehaviour
     void Start()
     {
         OtherLoopingBG = new GameObject[9];
-        renderer = GetComponent<SpriteRenderer>();
+        SprRend = GetComponent<SpriteRenderer>();
         mainCamera = Camera.main;
-        cameraToScript = mainCamera.GetComponent<CameraToScript>();
         Transform parent = transform.parent;
         if (BGproperty.BGsprite != null)
-            renderer.sprite = BGproperty.BGsprite;
+            SprRend.sprite = BGproperty.BGsprite;
         MainCoroutine = StartCoroutine("MainCameraPositions");
     }
 
@@ -54,13 +53,14 @@ public class BackGroundToCamera : MonoBehaviour
     {
         while(Application.isPlaying)
         {
+            cameraToScript = mainCamera.GetComponent<CameraToScript>();
             transform.localScale = BGproperty.sizeMultiply;
             //移動先はカメラの位置がマップ座標のどこに位置しているかで決まる。
             //メインカメラのポジションを差し引いて中心からどのぐらい離れているかを調べる｡
             Vector2 BGPos =
                 ((Vector2.one / 2 - (Vector2)mainCamera.transform.position) /
                 (cameraToScript.Basesprite.bounds.size)) / cameraToScript.WorldSize * 2;
-            Debug.Log(BGPos.ToString());
+            //Debug.Log(BGPos.ToString());
 
             //BGPosの動作範囲はワールド上のスプライトのサイズ - maincameraのサイズになる｡
             //もしカメラが背景からはみ出るときそれを止める。
@@ -74,8 +74,8 @@ public class BackGroundToCamera : MonoBehaviour
                 cameraToScript.TransPos.y + mainCamera.rect.size.y * 4);
 
             Vector2 TransitSize = new Vector2
-                (renderer.sprite.bounds.size.x * transform.localScale.x - mainCamera.rect.size.x * 4 * mainCamera.aspect,
-                renderer.sprite.bounds.size.y * transform.localScale.y - mainCamera.rect.size.y * 4);
+                (SprRend.sprite.bounds.size.x * transform.localScale.x - mainCamera.rect.size.x * 4 * mainCamera.aspect,
+                SprRend.sprite.bounds.size.y * transform.localScale.y - mainCamera.rect.size.y * 4);
 
             MainPos = BGPos * TransitSize * BGproperty.TransMultiply / 2 + BGproperty.Shift + (BGproperty.MovesTo * Time.deltaTime);
 
@@ -102,8 +102,8 @@ public class BackGroundToCamera : MonoBehaviour
                 OtherLoopingBG[i].GetComponent<BackGroundToCamera>().BGproperty.isBGloops = false;
                 OtherLoopingBG[i].transform.position =
                     new Vector2
-                    (renderer.sprite.bounds.size.x * BGproperty.sizeMultiply.x * (1 - (i % 3)) * 2,
-                     renderer.sprite.bounds.size.y * BGproperty.sizeMultiply.y * (Mathf.CeilToInt((i) / 3)) * 2);
+                    (SprRend.sprite.bounds.size.x * BGproperty.sizeMultiply.x * (1 - (i % 3)) * 2,
+                     SprRend.sprite.bounds.size.y * BGproperty.sizeMultiply.y * (Mathf.CeilToInt((i) / 3)) * 2);
 
             }
             Destroy(OtherLoopingBG[4]);

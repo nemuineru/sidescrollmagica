@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Maps/Stage_1/Startpoint/StartPoint.unity
+- path: Assets/Maps/Stage_1/Startpoint/StageComp/StartPoint.unity
   isLoaded: 1
   isActive: 1

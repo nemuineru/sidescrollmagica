@@ -18,7 +18,7 @@ public class WeaponBehavior : MonoBehaviour
         Chase
     }
 
-    Rigidbody2D rigidbody2D;
+    Rigidbody2D rigid2D;
 
     float remaining = 0;
     // Use this for initialization
@@ -43,7 +43,7 @@ public class WeaponBehavior : MonoBehaviour
             }
             else
             {
-                status = collision.transform.root.GetComponent<EnemyStatus>();
+                status = collision.transform.parent.GetComponent<EnemyStatus>();
                 status.status.hp -= FirePower;
             }
         }
@@ -64,7 +64,7 @@ public class WeaponBehavior : MonoBehaviour
     void Start()
     {
 
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rigid2D = GetComponent<Rigidbody2D>();
 
         switch (type)
         {
@@ -97,7 +97,7 @@ public class WeaponBehavior : MonoBehaviour
 
     IEnumerator S_Straight()
     {
-        rigidbody2D.velocity = new Vector2(BulletSpeed,0);
+        rigid2D.velocity = new Vector2(BulletSpeed,0);
         yield return null;
     }
 
@@ -106,17 +106,17 @@ public class WeaponBehavior : MonoBehaviour
         if (tag == "Enemy's Bullet")
         {
             GameObject Player = GameObject.FindGameObjectWithTag("Player");
-            rigidbody2D.velocity = (Player.transform.position - transform.position).normalized * BulletSpeed;
+            rigid2D.velocity = (Player.transform.position - transform.position).normalized * BulletSpeed;
         }
         yield return null;
     }
 
     IEnumerator S_Gravity()
     {
-        rigidbody2D.velocity = new Vector2(BulletSpeed, Mathf.Abs(BulletSpeed / 2));
+        rigid2D.velocity = new Vector2(BulletSpeed, Mathf.Abs(BulletSpeed / 2));
         while (Application.isPlaying){
             transform.rotation = Quaternion.Euler(0,0,
-                Mathf.Rad2Deg * Mathf.Asin(rigidbody2D.velocity.normalized.y / rigidbody2D.velocity.normalized.x));
+                Mathf.Rad2Deg * Mathf.Asin(rigid2D.velocity.normalized.y / rigid2D.velocity.normalized.x));
             yield return null;
         }
     }

@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4524530103768010}
   - component: {fileID: 114900119466463110}
+  - component: {fileID: 114806244672151326}
   m_Layer: 0
   m_Name: How_to_Play_Info
   m_TagString: Untagged
@@ -40,6 +41,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114806244672151326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1455096403106346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e898470fe97ae4498e1cc65c02f526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CsvResource: {fileID: 4900000, guid: ea4eeaa44cdc09f4a9fe141142a20865, type: 3}
+  height: 1560
 --- !u!114 &114900119466463110
 MonoBehaviour:
   m_ObjectHideFlags: 1

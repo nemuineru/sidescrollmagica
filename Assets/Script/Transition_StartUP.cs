@@ -7,16 +7,7 @@ public class Transition_StartUP : MonoBehaviour {
 
     Fade fade;
     public float trasitiontime = 1f;
-
-    void OnActiveSceneChanged(Scene scenePrev, Scene sceneNext)
-    {
-        StartCoroutine("Fadingin");
-    }
-    void Awake() {
-        UnityEngine.SceneManagement.SceneManager.activeSceneChanged +=
-            OnActiveSceneChanged;
-        StartCoroutine("FadingOut");
-    }
+    
 
     // Use this for initialization
     void Start ()
@@ -32,8 +23,8 @@ public class Transition_StartUP : MonoBehaviour {
         Debug.Log("Start");
         Time.timeScale = 0;
         fade = GetComponent<Fade>();
-        fade.FadeIn(0f);
-        fade.FadeOut(trasitiontime);
+        fade.FadeIn(0f, false);
+        fade.FadeOut(trasitiontime, false);
         Time.timeScale = 1f;
         yield return null;
     }
@@ -43,8 +34,8 @@ public class Transition_StartUP : MonoBehaviour {
         Debug.Log("Start");
         Time.timeScale = 0;
         fade = GetComponent<Fade>();
-        fade.FadeOut(0f);
-        fade.FadeIn(trasitiontime);
+        fade.FadeOut(0f,false);
+        fade.FadeIn(trasitiontime,false);
         Time.timeScale = 1f;
         yield return null;
     }
