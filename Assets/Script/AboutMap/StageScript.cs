@@ -29,11 +29,8 @@ public class StageScript : MonoBehaviour {
 
     public void DestroyCurrentMap()
     {
-        //現在マップを削除｡
-        foreach (MapGenerate Map in currentMap)
-        {
-                Debug.Log(Map.name);
-                Destroy(Map.gameObject); 
+        for (int i = 0; i < currentMap.Length; i++) {
+            Destroy(currentMap[i].gameObject,1.0f);
         }
     }
     public void InstantiateNextMap()

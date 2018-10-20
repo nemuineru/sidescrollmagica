@@ -41,9 +41,10 @@ public class GateManager : MonoBehaviour {
             Debug.Log("B");
         }
         Time.timeScale = 1;
-        yield return fade.FadeOut(1.5f, false);
         Debug.Log("C");
-        yield return new WaitForSecondsRealtime(1.5f);
+        yield return new WaitForSecondsRealtime(0.5f);
+        Debug.Log("D");
+        yield return fade.FadeOut(1.5f, false);
     }
     
 }
