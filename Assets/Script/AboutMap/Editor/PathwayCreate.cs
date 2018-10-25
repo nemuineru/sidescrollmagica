@@ -3,23 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class PathwayCreate : MonoBehaviour {
+public class PathwayCreate : ScriptableWizard{
 
 
     public Vector2[] PathPoint;
-    // Use this for initialization
-	void Start () {
-		
-	}
+    static PathwayCreate exampleWindow;
 
-    string text1,text2;
-    void OnGUI()
+    [MenuItem("Window/Example")]
+    static void Open()
     {
-       text2 = GUI.TextArea(new Rect(200,10,50,4),text1);
+        if (exampleWindow == null)
+        {
+            exampleWindow = CreateInstance<PathwayCreate>();
+        }
+        DisplayWizard<PathwayCreate>("PathwayCreate");
     }
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
+    private void OnWizardCreate()
+    {
+        new GameObject("New Object");
+    }
+
 }
