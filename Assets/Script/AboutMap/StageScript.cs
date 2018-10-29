@@ -4,62 +4,64 @@ using UnityEngine;
 
 public class StageScript : MonoBehaviour {
 
-    public MapGenerate[] prevupMap,currentMap,nextupMap;
+    public StageComp FirstComp, nextComp;
+    public MapGenerate[] currentMap;
     public Vector2Int TransitTo;
     GameObject Player;
     GameObject InstMap;
 
     int MapLength, MapHeight;
-    
+
     private CsvReader MapData;
 
     void Awake()
     {
         //NextUpに記載されたマップを出力｡
-        InstantiateNextMap();
+        InstantiateFirstMap();
     }
 
-    void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start() {
+    }
+
+    // Update is called once per frame
+    void Update() {
+
+    }
 
     public void DestroyCurrentMap()
     {
-        for (int i = 0; i < currentMap.Length; i++) {
-            Destroy(currentMap[i].gameObject,1.0f);
+        for (int i = 0; i < currentMap.Length; i++)
+        {
+            Destroy(currentMap[i].gameObject);
+            Debug.Log("Destroyed");
         }
     }
+
+    public void InstantiateFirstMap()
+    {
+        //まず読み込むマップの数を取得
+        //マップごとに生成｡　現在マップを生成ごとに更新｡
+        MapGens(InstMap, FirstComp);
+    }
+
     public void InstantiateNextMap()
     {
         //まず読み込むマップの数を取得
         //マップごとに生成｡　現在マップを生成ごとに更新｡
-        MapGens(InstMap, nextupMap);
+        MapGens(InstMap, nextComp);
     }
 
-    public void InstantiatePrevMap()
+
+    void MapGens(GameObject InstaMaps, StageComp Comps)
     {
-        currentMap = new MapGenerate[nextupMap.Length];
-        MapGens(InstMap, prevupMap);
-    }
-
-    void MapGens(GameObject InstaMaps,MapGenerate[] Maps) {
+        Player = GameObject.Find("Player");
+        Player.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
+        MapGenerate[] Maps = Comps.Map;
         int i = 0;
         currentMap = new MapGenerate[Maps.Length];
-        prevupMap = new MapGenerate[currentMap.Length];
-        //現在のマップを過去のマップに記載｡
-        foreach (MapGenerate Map in currentMap) {
-            prevupMap[i] = Map;
-            i++;
-        }
-        i = 0;
         //生成するマップを現在マップに設定｡
         foreach (MapGenerate Map in Maps)
         {
-            Player = GameObject.Find("Player");
             if (Map.gameObject.GetComponent<CsvReader>() == null)
             {
                 MapData = Map.gameObject.AddComponent<CsvReader>();
@@ -76,9 +78,10 @@ public class StageScript : MonoBehaviour {
                            new Vector2((TransitTo.x - MapLength / 2f) * baseSprite.bounds.size.x,
                            (MapHeight / 2f - TransitTo.y) * baseSprite.bounds.size.y);
             Player.transform.position = TransitWorldpos;
-            InstaMaps = Instantiate(Map.gameObject);
-            currentMap[i] = InstaMaps.GetComponent<MapGenerate>();
+            InstMap = Instantiate(Map.gameObject);
+            currentMap[i] = InstMap.GetComponent<MapGenerate>();
             i++;
         }
+        Debug.Log("Instaned");
     }
 }

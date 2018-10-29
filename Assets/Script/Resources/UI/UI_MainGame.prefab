@@ -219,7 +219,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224965484381167128}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4237951110512270
 Transform:
@@ -232,7 +232,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224965484381167128}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4384388213819942
 Transform:
@@ -245,7 +245,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224965484381167128}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &20137634012011988
 Camera:
@@ -271,7 +271,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.612915
+  orthographic size: 2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -639,12 +639,12 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 960, y: 450}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -677,7 +677,7 @@ MonoBehaviour:
   m_Material: {fileID: 2100000, guid: c08cd46eaf9a0d34eb221ba2978cc476, type: 2}
   m_Color: {r: 0.14351194, g: 0.20184149, b: 0.23584908, a: 1}
   m_RaycastTarget: 0
-  maskTexture: {fileID: 2800000, guid: 2155630f4cd644a4989b380d9842e214, type: 3}
+  maskTexture: {fileID: 2800000, guid: 997473087cf20c241b5ad60569f6be5d, type: 3}
   cutoutRange: 0
 --- !u!114 &114486693463365246
 MonoBehaviour:
@@ -690,8 +690,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a86ced6ef04ee4bae6fc7c6d7c7537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextUp: {fileID: 0}
-  TransitTo: {x: 0, y: 0}
+  NextUp: {fileID: 114604530141584620, guid: 0ab40485d5ed16047a4769dd95be00e7, type: 2}
+  TransitTo: {x: 1, y: 11}
   EnteringSound: {fileID: 0}
   isContract: 0
   fade: {fileID: 114169062838823206}
@@ -750,11 +750,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930d3752f4ed80940b99b7d09c53337a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prevupMap: []
+  FirstComp: {fileID: 114604530141584620, guid: 0ab40485d5ed16047a4769dd95be00e7,
+    type: 2}
+  nextComp: {fileID: 0}
   currentMap: []
-  nextupMap:
-  - {fileID: 114900353380362010, guid: 861442fb2bc21b541987f155349e2f74, type: 2}
-  TransitTo: {x: 0, y: 0}
+  TransitTo: {x: 1, y: 11}
 --- !u!114 &114748778233518088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1023,7 +1023,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224965484381167128}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1042,7 +1042,7 @@ RectTransform:
   m_Children:
   - {fileID: 224181705817969866}
   m_Father: {fileID: 224965484381167128}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1059,12 +1059,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 224682124828844764}
   - {fileID: 4384388213819942}
   - {fileID: 4237951110512270}
-  - {fileID: 224682124828844764}
+  - {fileID: 4120568882188306}
   - {fileID: 224792544600857858}
   - {fileID: 224992718597021040}
-  - {fileID: 4120568882188306}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1104,7 +1104,7 @@ RectTransform:
   - {fileID: 224975627551753230}
   - {fileID: 224552650675240176}
   m_Father: {fileID: 224965484381167128}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}

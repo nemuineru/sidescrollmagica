@@ -182,12 +182,12 @@ public class PlayerMoving : MonoBehaviour {
                     if (rigid2d.velocity.y < 0)
                     {
                         rigid2d.velocity = new Vector2(rigid2d.velocity.x,
-                                status.jumppower / 1.5f);
+                                status.jumppower / 1.2f);
                     }
                     else
                     {
                         rigid2d.velocity += new Vector2(rigid2d.velocity.x,
-                                status.jumppower / 1.5f);
+                                status.jumppower / 2f);
                     }
                 }
                 else

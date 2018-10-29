@@ -30,20 +30,37 @@ public class GateManager : MonoBehaviour {
                 Audio.clip = EnteringSound;
                 Audio.Play();
         }
-        yield return fade.FadeIn(0.5f,false);
+            yield return StartCoroutine(WaitFadeIn(0.1f, 0.5f));
         if (NextUp != null) //次ステージ形成｡
         {
-            stageScript.DestroyCurrentMap();
-            stageScript.nextupMap = NextUp.Map;
+            Debug.Log("A");
+            stageScript.nextComp = NextUp;
             stageScript.TransitTo = TransitTo;
+            stageScript.DestroyCurrentMap();
             stageScript.InstantiateNextMap();
-            yield return new WaitForSecondsRealtime(1.5f);
-            Debug.Log("B");
+            Debug.Log("A'");
+            Time.timeScale = 1;
+            Debug.Log("C");
         }
-        Time.timeScale = 1;
-        Debug.Log("C");
-        yield return new WaitForSecondsRealtime(0.5f);
-        Debug.Log("D");
-        yield return fade.FadeOut(1.5f, false);
+        yield return StartCoroutine(WaitFadeOut(1f, 0.5f));
+        Debug.Log("C'");
+        yield return null;
     }
+
+
+    public IEnumerator WaitFadeIn(float WaitRealtime, float FadeIntime) {
+        yield return fade.FadeIn(FadeIntime, false);
+        Debug.Log("B");
+        yield return new WaitForSecondsRealtime(WaitRealtime);
+        Debug.Log("B'");
+    }
+    public IEnumerator WaitFadeOut(float WaitRealtime, float Fadeouttime)
+    {
+        yield return new WaitForSecondsRealtime(WaitRealtime);
+        Debug.Log("D");
+        yield return fade.FadeOut(Fadeouttime, false);
+        Debug.Log("D'");
+    }
+
+
 }

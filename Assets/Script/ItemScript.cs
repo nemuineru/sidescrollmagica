@@ -14,24 +14,23 @@ public class ItemScript : MonoBehaviour {
          Audi = GameObject.Find("Status").GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update() {
-        transform.rotation = Quaternion.Euler(0, 0, 0);
-        float size_x = GetComponent<BoxCollider2D>().size.x;
-        float size_y = GetComponent<BoxCollider2D>().size.x;
-        LayerMask Mask = LayerMask.GetMask("Player");
-        if (TerrainNearby(new Vector2(size_x, 0),Vector2.right,Mask.value) ||
-            TerrainNearby(new Vector2(-size_x, 0), Vector2.left, Mask.value)||
-            TerrainNearby(new Vector2(0, size_y), Vector2.up, Mask.value) ||
-            TerrainNearby(new Vector2(0, -size_y), Vector2.down, Mask.value))
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
         {
-            if (Audios != null) {
+            if (Audios != null)
+            {
                 Debug.Log("Got : " + score);
                 Audi.clip = Audios;
                 Audi.Play();
             }
             Destroy(gameObject);
         }
+    }
+
+    // Update is called once per frame
+    void Update() {
+        transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
 

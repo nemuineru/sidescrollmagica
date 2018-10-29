@@ -45,46 +45,46 @@ public class EnemyStatus : MonoBehaviour {
                 C5 = Mathf.CeilToInt((status.coins - C500 * 500 - C100 * 100 - C50 * 50 - C10 * 10) / 5 / 1.1f );
                 C1 = (status.coins - C500 * 500 - C100 * 100 - C50 * 50 - C10 * 10 - C5 * 5);
 
-
+                Debug.Log(C500 + "+" + C100 + "+" + C50 + "+" + C10 + "+" + C5 + "+" + C1);
 
 
                 for (int i = 0; i < C500; i++) {
-                    GameObject Items = Instantiate(BaseItem.Coin_1
+                    GameObject Items = Instantiate(BaseItem.Coin_500
                         , transform.position, Quaternion.Euler(0, 0, 0));
                     Items.GetComponent<Rigidbody2D>().velocity =
                         new Vector2(Random.Range(-3f, 3f), Random.Range(4f, 6f));
                 }
                 for (int i = 0; i < C100; i++)
                 {
-                    GameObject Items = Instantiate(BaseItem.Coin_5
+                    GameObject Items = Instantiate(BaseItem.Coin_100
                         , transform.position, Quaternion.Euler(0, 0, 0));
                     Items.GetComponent<Rigidbody2D>().velocity =
                         new Vector2(Random.Range(-3f, 3f), Random.Range(3f, 6f));
                 }
                 for (int i = 0; i < C50; i++)
                 {
-                    GameObject Items = Instantiate(BaseItem.Coin_10
+                    GameObject Items = Instantiate(BaseItem.Coin_50
                         , transform.position, Quaternion.Euler(0, 0, 0));
                     Items.GetComponent<Rigidbody2D>().velocity =
                         new Vector2(Random.Range(-3f, 3f), Random.Range(2f, 5f));
                 }
                 for (int i = 0; i < C10; i++)
                 {
-                    GameObject Items = Instantiate(BaseItem.Coin_50
+                    GameObject Items = Instantiate(BaseItem.Coin_10
                         , transform.position, Quaternion.Euler(0, 0, 0));
                     Items.GetComponent<Rigidbody2D>().velocity =
                         new Vector2(Random.Range(-3f, 3f), Random.Range(1f, 4f));
                 }
                 for (int i = 0; i < C5; i++)
                 {
-                    GameObject Items = Instantiate(BaseItem.Coin_100
+                    GameObject Items = Instantiate(BaseItem.Coin_5
                         , transform.position, Quaternion.Euler(0, 0, 0));
                     Items.GetComponent<Rigidbody2D>().velocity =
                         new Vector2(Random.Range(-3f, 3f), Random.Range(0f, 3f));
                 }
                 for (int i = 0; i < C1; i++)
                 {
-                    GameObject Items = Instantiate(BaseItem.Coin_500
+                    GameObject Items = Instantiate(BaseItem.Coin_1
                         , transform.position, Quaternion.Euler(0, 0, 0));
                     Items.GetComponent<Rigidbody2D>().velocity =
                         new Vector2(Random.Range(-3f, 3f), Random.Range(0f, 2f));

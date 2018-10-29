@@ -44,6 +44,7 @@ public class MapGenerate : MonoBehaviour {
         CompositeCollider2D CpCol2D =  Room.AddComponent<CompositeCollider2D>();
         CpCol2D.geometryType = CompositeCollider2D.GeometryType.Polygons;
         CpCol2D.vertexDistance = 0.16f;
+        //CompositColliderですべてのコリダーを設定｡
         maps = new GameObject[MapLength, MapHeight];
         //Debug.Log(MapLength + "," + MapHeight);
 
@@ -72,13 +73,31 @@ public class MapGenerate : MonoBehaviour {
                     connectSet.SetTileConnections(maps, i, j,
                         MapLength, MapHeight);
                     maps[i, j].transform.parent = Room.transform;
+                    //マップのチップごとに生成して設定｡
                 }
             }
-            //Debug.Log(j + "," + Debugs);
-            
         }
+        GameObject Borders = Resources.Load("PhisicallyBorder") as GameObject;
+        Vector2 Borders_Size = Borders.GetComponent<BoxCollider2D>().size;
+
+        Instantiate(Borders, 
+            new Vector2(-((MapLength + 1) / 2f) * sprite.bounds.size.x - Borders_Size.x / 2 ,
+                          (MapHeight / 2f) * sprite.bounds.size.y), 
+            Quaternion.Euler(0, 0, 0), gameObject.transform);
+        Instantiate(Borders,
+            new Vector2(((MapLength - 1) / 2f) * sprite.bounds.size.x + Borders_Size.x / 2 ,
+                          (MapHeight / 2f) * sprite.bounds.size.y),
+            Quaternion.Euler(0, 0, 0), gameObject.transform);
+        Instantiate(Borders,
+            new Vector2(0f ,
+                          ((MapHeight + 1) / 2f) * sprite.bounds.size.y + Borders_Size.y / 2),
+            Quaternion.Euler(0, 0, 0), gameObject.transform);
+
+        //右､左､上にボーダー生成｡
+
         Camera.main.GetComponent<CameraToScript>().CameraInstaTransit
                (GameObject.Find("Systems").GetComponent<StageScript>().TransitTo, new Vector2(MapLength, MapHeight));
+        //カメラの即時移動｡
     }
 	
 	// Update is called once per frame

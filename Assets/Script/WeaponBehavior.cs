@@ -41,11 +41,6 @@ public class WeaponBehavior : MonoBehaviour
                 status = collision.transform.GetComponent<EnemyHitComp_RefTo>().Status;
                 status.status.hp -= FirePower;
             }
-            else
-            {
-                status = collision.transform.parent.GetComponent<EnemyStatus>();
-                status.status.hp -= FirePower;
-            }
         }
 
             if (collision.transform.tag == "Player" && tag == "Enemy's Bullet")
