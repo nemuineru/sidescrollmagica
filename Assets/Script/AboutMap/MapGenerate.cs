@@ -22,7 +22,12 @@ public class MapGenerate : MonoBehaviour {
     {
         SpriteRenderer sprite =
             DefaultTile.GetComponent<SpriteRenderer>();
-        MapData = gameObject.AddComponent<CsvReader>();
+        if (gameObject.GetComponent<CsvReader>() == null)
+        {
+            MapData = gameObject.AddComponent<CsvReader>();
+        }
+        else
+            MapData = gameObject.GetComponent<CsvReader>();
         connectSet = gameObject.AddComponent<TileConnectSet>();
         MapData.CsvResource = MapResourceCSS;
         MapData.ReadData(); //CSSファイルから読み出し
@@ -69,13 +74,16 @@ public class MapGenerate : MonoBehaviour {
                     maps[i, j].transform.parent = Room.transform;
                 }
             }
-                    //Debug.Log(j + "," + Debugs);
+            //Debug.Log(j + "," + Debugs);
+            
         }
-        
+        Camera.main.GetComponent<CameraToScript>().CameraInstaTransit
+               (GameObject.Find("Systems").GetComponent<StageScript>().TransitTo, new Vector2(MapLength, MapHeight));
     }
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+
+    }
 }

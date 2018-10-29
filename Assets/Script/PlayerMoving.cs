@@ -167,12 +167,28 @@ public class PlayerMoving : MonoBehaviour {
             {
                 if (WallNearby && !OnBothGround)
                 {
-                    rigid2d.velocity = new Vector2(rigid2d.velocity.x + status.jumppower * transform.localScale.x * -1,
+                    if (rigid2d.velocity.y < 0)
+                    {
+                        rigid2d.velocity = new Vector2(rigid2d.velocity.x + status.jumppower * transform.localScale.x * -1,
                         status.jumppower);
+                    }
+                    else
+                    {
+                        rigid2d.velocity += new Vector2(rigid2d.velocity.x + status.jumppower * transform.localScale.x * -1,
+                        status.jumppower);
+                    }
                 }
                 else if (!OnGround) {
-                    rigid2d.velocity = new Vector2(rigid2d.velocity.x,
-                            status.jumppower / 1.5f);
+                    if (rigid2d.velocity.y < 0)
+                    {
+                        rigid2d.velocity = new Vector2(rigid2d.velocity.x,
+                                status.jumppower / 1.5f);
+                    }
+                    else
+                    {
+                        rigid2d.velocity += new Vector2(rigid2d.velocity.x,
+                                status.jumppower / 1.5f);
+                    }
                 }
                 else
                 {
@@ -206,8 +222,8 @@ public class PlayerMoving : MonoBehaviour {
     {
         while (Application.isPlaying)
         {
-            //キャラがいずれの方向にも動いている時。
-            if (Mathf.Abs(rigid2d.velocity.normalized.magnitude) > 0.2)
+            //キャラがいずれの方向に動いている時。
+            if (Mathf.Abs(rigid2d.velocity.magnitude) > 1.0)
             {
                 Animations.SetBool("IsMoving", true);
             }

@@ -16,13 +16,16 @@ public class CameraToScript : MonoBehaviour {
         Player = GameObject.Find("Player");
     }
 
+    Vector2 PlayerPos, PlayerVector, ActualPos;
+    Vector2 ScreenLD, ScreenRU, WorldBoun_LD, WorldBoun_RU, ScreenWPos_LD, ScreenWPos_RU;
+
     // Update is called once per frame
     void Update () {
 
         //プレイヤーの速度と位置、スクリーン位置を確認
-        Vector2 PlayerPos = Player.transform.position;
-        Vector2 PlayerVector = Player.GetComponent<Rigidbody2D>().velocity / Camera.main.orthographicSize;
-        Vector2 ActualPos = (Vector2)transform.position - CamShift;
+        PlayerPos = Player.transform.position;
+        PlayerVector = Player.GetComponent<Rigidbody2D>().velocity / Camera.main.orthographicSize;
+        ActualPos = (Vector2)transform.position - CamShift;
 
         //スクリーン位置に合わせメインポジションを変更
         if (Mathf.Abs(PlayerPos.x - ActualPos.x) > PLScrlDeadzone.x * Camera.main.orthographicSize
@@ -43,22 +46,22 @@ public class CameraToScript : MonoBehaviour {
         {
             MainPos.y = CamShift.y;
         }
-        Vector2 ScreenLD =
+        ScreenLD =
             new Vector2(-Camera.main.rect.size.x * Camera.main.aspect,
             -Camera.main.rect.size.y) * Camera.main.orthographicSize;
-        Vector2 ScreenRU =
+         ScreenRU =
             new Vector2(Camera.main.rect.size.x * Camera.main.aspect,
            Camera.main.rect.size.y) * Camera.main.orthographicSize;
-        Vector2 WorldBoun_LD =
+         WorldBoun_LD =
             new Vector2(-(WorldSize.x + 0.8f) / 2 * Basesprite.bounds.size.x,
            -(WorldSize.y - 1.2f) / 2 * Basesprite.bounds.size.y);
-        Vector2 WorldBoun_RU =
+         WorldBoun_RU =
             new Vector2((WorldSize.x - 1.2f) / 2 * Basesprite.bounds.size.x,
            (WorldSize.y + 0.8f) / 2 * Basesprite.bounds.size.y);
 
-        Vector2 ScreenWPos_LD =
+         ScreenWPos_LD =
             ScreenLD + MainPos;
-        Vector2 ScreenWPos_RU =
+         ScreenWPos_RU =
             ScreenRU + MainPos;
 
         //カメラの移動でステージから外れないようにする｡
@@ -90,5 +93,15 @@ public class CameraToScript : MonoBehaviour {
         
         //実際に代入。
         transform.position = (Vector3)MainPos + new Vector3(0, 0, -10);
+    }
+
+    public void CameraInstaTransit(Vector2Int TransTo, Vector2 WorldSize)
+    {
+        MainPos = new Vector2((TransTo.x - WorldSize.x / 2f) * Basesprite.bounds.size.x,
+                          (WorldSize.y / 2f - TransTo.y) * Basesprite.bounds.size.y);
+        TransPos = new Vector2((TransTo.x - WorldSize.x / 2f) * Basesprite.bounds.size.x,
+                          (WorldSize.y / 2f - TransTo.y) * Basesprite.bounds.size.y);
+        transform.position = (Vector3)MainPos + new Vector3(0, 0, -10);
+        Debug.Log(transform.position);
     }
 }

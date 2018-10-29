@@ -1,0 +1,2 @@
+C:\Users\nemuru\Documents\GitHub\SideScrollMagica\obj\Debug\Unity.Recorder.Samples.csprojAssemblyReference.cache
+C:\Users\nemuru\Documents\GitHub\SideScrollMagica\obj\Debug\Unity.Recorder.Samples.csproj.CoreCompileInputs.cache

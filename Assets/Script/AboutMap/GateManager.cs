@@ -46,5 +46,4 @@ public class GateManager : MonoBehaviour {
         Debug.Log("D");
         yield return fade.FadeOut(1.5f, false);
     }
-    
 }

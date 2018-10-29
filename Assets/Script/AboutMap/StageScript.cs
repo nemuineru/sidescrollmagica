@@ -5,7 +5,7 @@ using UnityEngine;
 public class StageScript : MonoBehaviour {
 
     public MapGenerate[] prevupMap,currentMap,nextupMap;
-    public Vector2 TransitTo;
+    public Vector2Int TransitTo;
     GameObject Player;
     GameObject InstMap;
 
