@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114780451723363336}
   - component: {fileID: 212001500634939734}
   - component: {fileID: 61993367084651582}
+  - component: {fileID: 50915622546945150}
   m_Layer: 12
   m_Name: PF_Rock
   m_TagString: Untagged
@@ -42,6 +43,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50915622546945150
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086033317511100}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: f588e6b0bbb2bdb428df81ece69d88ca, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &61993367084651582
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -87,12 +108,13 @@ MonoBehaviour:
   property:
     Tilename: Dirt
     Texture: {fileID: 2800000, guid: 70bbc0c9708ca4f4d8f4f279d655281c, type: 3}
-    StageConnectedTo: {fileID: 0}
-    ConnectTo: {x: 0, y: 0}
-    EnteringSound: {fileID: 0}
-    SteppingSound: {fileID: 0}
     TexSize: {x: 64, y: 96}
     CutSize: {x: 32, y: 32}
+    StageConnectedTo: {fileID: 0}
+    ConnectTo: {x: 0, y: 0}
+    isContactToGo: 1
+    EnteringSound: {fileID: 0}
+    SteppingSound: {fileID: 0}
   Db_GroupNum: 0
   Db_CutNum: 0
   TileWithin: 000000000000000000
