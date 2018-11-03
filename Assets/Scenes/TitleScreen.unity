@@ -417,6 +417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuname: Start
   type: 0
+  SceneName: StartPoint
 --- !u!212 &1305333115
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -602,6 +603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuname: Exit
   type: 3
+  SceneName: 
 --- !u!212 &1677488726
 SpriteRenderer:
   m_ObjectHideFlags: 0

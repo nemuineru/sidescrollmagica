@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4516105835200906}
   - component: {fileID: 61869759392483758}
+  - component: {fileID: 114182573011068704}
   m_Layer: 0
   m_Name: PhisicallyBorder
   m_TagString: Untagged
@@ -65,3 +66,14 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 120, y: 120}
   m_EdgeRadius: 0
+--- !u!114 &114182573011068704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1135703981470102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6fde922265cd64ab2aa80b945cccdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -260,7 +260,6 @@ C:\Users\nemuru\Documents\GitHub\SideScrollMagica\Temp\bin\Debug\ExCSS.Unity.dll
 C:\Users\nemuru\Documents\GitHub\SideScrollMagica\Temp\bin\Debug\Unity.Legacy.NRefactory.dll
 C:\Users\nemuru\Documents\GitHub\SideScrollMagica\Temp\bin\Debug\Boo.Lang.Parser.dll
 C:\Users\nemuru\Documents\GitHub\SideScrollMagica\Temp\bin\Debug\Boo.Lang.Compiler.dll
-C:\Users\nemuru\Documents\GitHub\SideScrollMagica\Temp\bin\Debug\UnityEditor.UI.dll
 C:\Users\nemuru\Documents\GitHub\SideScrollMagica\Temp\bin\Debug\Unity.IvyParser.dll
 C:\Users\nemuru\Documents\GitHub\SideScrollMagica\Temp\bin\Debug\Boo.Lang.PatternMatching.dll
 C:\Users\nemuru\Documents\GitHub\SideScrollMagica\Temp\bin\Debug\Boo.Lang.Useful.dll
@@ -332,7 +331,6 @@ C:\Users\nemuru\Documents\GitHub\SideScrollMagica\Temp\bin\Debug\UnityEngine.Net
 C:\Users\nemuru\Documents\GitHub\SideScrollMagica\Temp\bin\Debug\UnityEngine.GoogleAudioSpatializer.xml
 C:\Users\nemuru\Documents\GitHub\SideScrollMagica\Temp\bin\Debug\UnityEngine.HoloLens.xml
 C:\Users\nemuru\Documents\GitHub\SideScrollMagica\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
-C:\Users\nemuru\Documents\GitHub\SideScrollMagica\Temp\bin\Debug\UnityEditor.UI.xml
 C:\Users\nemuru\Documents\GitHub\SideScrollMagica\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\nemuru\Documents\GitHub\SideScrollMagica\obj\Debug\Assembly-CSharp.dll
 C:\Users\nemuru\Documents\GitHub\SideScrollMagica\obj\Debug\Assembly-CSharp.pdb

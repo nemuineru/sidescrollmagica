@@ -78,6 +78,7 @@ public class MapGenerate : MonoBehaviour {
             }
         }
         GameObject Borders = Resources.Load("PhisicallyBorder") as GameObject;
+        GameObject DeadBorders = Resources.Load("DeadBorder") as GameObject;
         Vector2 Borders_Size = Borders.GetComponent<BoxCollider2D>().size;
 
         Instantiate(Borders, 
@@ -92,8 +93,13 @@ public class MapGenerate : MonoBehaviour {
             new Vector2(0f ,
                           ((MapHeight + 1) / 2f) * sprite.bounds.size.y + Borders_Size.y / 2),
             Quaternion.Euler(0, 0, 0), gameObject.transform);
+        Instantiate(DeadBorders,
+            new Vector2(0f,
+                          -((MapHeight + 1) / 2f) * sprite.bounds.size.y
+                          - DeadBorders.GetComponent<BoxCollider2D>().size.y / 2),
+            Quaternion.Euler(0, 0, 0), gameObject.transform);
 
-        //右､左､上にボーダー生成｡
+        //右､左､上にボーダー生成｡ 下にはデッドラインボーダーを生成｡
 
         Camera.main.GetComponent<CameraToScript>().CameraInstaTransit
                (GameObject.Find("Systems").GetComponent<StageScript>().TransitTo, new Vector2(MapLength, MapHeight));

@@ -10,9 +10,10 @@ public class StageScript : MonoBehaviour {
     GameObject Player;
     GameObject InstMap;
 
-    int MapLength, MapHeight;
+    public int MapLength, MapHeight;
+    public Sprite baseSprite;
 
-    private CsvReader MapData;
+    CsvReader MapData;
 
     void Awake()
     {
@@ -30,6 +31,8 @@ public class StageScript : MonoBehaviour {
 
     public void DestroyCurrentMap()
     {
+        MapLength = 0;
+        MapHeight = 0;
         for (int i = 0; i < currentMap.Length; i++)
         {
             Destroy(currentMap[i].gameObject);
@@ -39,6 +42,8 @@ public class StageScript : MonoBehaviour {
 
     public void InstantiateFirstMap()
     {
+        MapLength = 0;
+        MapHeight = 0;
         //まず読み込むマップの数を取得
         //マップごとに生成｡　現在マップを生成ごとに更新｡
         MapGens(InstMap, FirstComp);
@@ -46,6 +51,8 @@ public class StageScript : MonoBehaviour {
 
     public void InstantiateNextMap()
     {
+        MapLength = 0;
+        MapHeight = 0;
         //まず読み込むマップの数を取得
         //マップごとに生成｡　現在マップを生成ごとに更新｡
         MapGens(InstMap, nextComp);
@@ -54,34 +61,37 @@ public class StageScript : MonoBehaviour {
 
     void MapGens(GameObject InstaMaps, StageComp Comps)
     {
-        Player = GameObject.Find("Player");
+        int Length = 0, Height = 0;
+
+           Player = GameObject.Find("Player");
         Player.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
         MapGenerate[] Maps = Comps.Map;
         int i = 0;
         currentMap = new MapGenerate[Maps.Length];
         //生成するマップを現在マップに設定｡
-        foreach (MapGenerate Map in Maps)
+        for(i = 0;i < Maps.Length;i++)
         {
-            if (Map.gameObject.GetComponent<CsvReader>() == null)
+            MapGenerate Map = Maps[i];
+            if (Map.gameObject.GetComponent<CsvReader>() != null)
             {
-                MapData = Map.gameObject.AddComponent<CsvReader>();
-            }
-            else {
                 MapData = Map.gameObject.GetComponent<CsvReader>();
             }
             MapData.CsvResource = Map.MapResourceCSS;
             MapData.ReadData();
-            MapLength = MapData.csvDatas[0].Length;
-            MapHeight = MapData.csvDatas.Count;
-            Sprite baseSprite = Map.DefaultTile.GetComponent<SpriteRenderer>().sprite;
+            Length = MapData.csvDatas[0].Length;
+            Debug.Log("X : " + MapData.csvDatas[0].Length);
+            Height = MapData.csvDatas.ToArray().Length;
+            Debug.Log("Y : " + MapData.csvDatas.ToArray().Length);
+            baseSprite = Map.DefaultTile.GetComponent<SpriteRenderer>().sprite;
             Vector2 TransitWorldpos =
-                           new Vector2((TransitTo.x - MapLength / 2f) * baseSprite.bounds.size.x,
-                           (MapHeight / 2f - TransitTo.y) * baseSprite.bounds.size.y);
+                           new Vector2((TransitTo.x - Length / 2f) * baseSprite.bounds.size.x,
+                           (Height / 2f - TransitTo.y) * baseSprite.bounds.size.y);
             Player.transform.position = TransitWorldpos;
             InstMap = Instantiate(Map.gameObject);
             currentMap[i] = InstMap.GetComponent<MapGenerate>();
-            i++;
         }
+        MapLength = Length;
+        MapHeight = Height;
         Debug.Log("Instaned");
     }
 }

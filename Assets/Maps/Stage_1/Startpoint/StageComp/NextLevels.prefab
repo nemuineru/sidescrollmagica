@@ -187,7 +187,7 @@ MonoBehaviour:
     CutSize: {x: 32, y: 32}
     StageConnectedTo: {fileID: 114301975191997484, guid: a5f464bedd305334ea09319d748701b0,
       type: 2}
-    ConnectTo: {x: 4, y: 4}
+    ConnectTo: {x: 3, y: 19}
     isContactToGo: 1
     EnteringSound: {fileID: 8300000, guid: b3f3a18f146640e439f3553322092adb, type: 3}
     SteppingSound: {fileID: 0}

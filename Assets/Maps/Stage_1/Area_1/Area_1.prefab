@@ -213,18 +213,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapResourceCSS: {fileID: 4900000, guid: 0095ea84e3bd4fc4aad4eb8e41839e18, type: 3}
   MapChips:
-  - {fileID: 1870569927086420, guid: 46c07b2dd160de843b3d6d3de526d059, type: 2}
   - {fileID: 1086033317511100, guid: da3c4b068749fbb4ea941d351b84b53b, type: 2}
   - {fileID: 1086033317511100, guid: b3f4018433ab9c7479c0eb0974f40066, type: 2}
   - {fileID: 1086033317511100, guid: 660f63d412d8dc4429a86fbed8547f28, type: 2}
   - {fileID: 1086033317511100, guid: f46fd3e823b9fdf489226ca4aafcbba4, type: 2}
   - {fileID: 1086033317511100, guid: 5b295e72faa1afe4b98f740b51727e2b, type: 2}
   - {fileID: 1086033317511100, guid: a7677bdbec95a1b439e4a18e3de8b92c, type: 2}
-  - {fileID: 0}
-  - {fileID: 1323253588567502, guid: e473a37a1555fd843af4bf0076a9cdc3, type: 2}
   - {fileID: 1086033317511100, guid: b547a1c527dca3447b308b0fe8b2d5b1, type: 2}
   - {fileID: 1086033317511100, guid: 01e7e64cc9449fc409ceb529bb01c06b, type: 2}
-  - {fileID: 1086033317511100, guid: 9badf6f8c0a2d734fbcd94d23261a46d, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -250,7 +250,6 @@ MonoBehaviour:
   - {fileID: 1086033317511100, guid: 86f123cea99beac43954811cfbc6ca4c, type: 2}
   - {fileID: 1086033317511100, guid: 8512127a0e18ca249b045e929ec9894c, type: 2}
   - {fileID: 1086033317511100, guid: 9badf6f8c0a2d734fbcd94d23261a46d, type: 2}
-  - {fileID: 1086033317511100, guid: 9badf6f8c0a2d734fbcd94d23261a46d, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -270,6 +269,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 1323253588567502, guid: 2a39b1ceaff6fb34789fe716838c1441, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CsvResource: {fileID: 4900000, guid: 0095ea84e3bd4fc4aad4eb8e41839e18, type: 3}
-  height: 32
+  height: 0
 --- !u!212 &212229761263216030
 SpriteRenderer:
   m_ObjectHideFlags: 1

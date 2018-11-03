@@ -44,9 +44,19 @@ public class WeaponBehavior : MonoBehaviour
         }
 
             if (collision.transform.tag == "Player" && tag == "Enemy's Bullet")
-        {
-            PlayerMoving status = collision.transform.GetComponent<PlayerMoving>();
-            status.status.Life -= FirePower;
+            {
+            PlayerMoving status = collision.transform.parent.GetComponent<PlayerMoving>();
+            PlayerMoving Player = collision.transform.parent.GetComponent<PlayerMoving>();
+            if (status.status.InvisTime == 0)
+            {
+                Player.Damaged = true;
+                status.status.Life -= FirePower;
+                Player.gameObject.GetComponent<Rigidbody2D>().velocity =
+                    Mathf.Sign(Player.transform.localScale.x) * Vector2.left * FirePower * 4
+                    +
+                    Vector2.up * FirePower * 2;
+               isHit = true;
+            }
         }
             if (isHit == true)
             {
@@ -101,7 +111,8 @@ public class WeaponBehavior : MonoBehaviour
         if (tag == "Enemy's Bullet")
         {
             GameObject Player = GameObject.FindGameObjectWithTag("Player");
-            rigid2D.velocity = (Player.transform.position - transform.position).normalized * BulletSpeed;
+            Vector2 ToPos = (Player.transform.position - transform.position);
+            rigid2D.velocity = ToPos.normalized * BulletSpeed;
         }
         yield return null;
     }

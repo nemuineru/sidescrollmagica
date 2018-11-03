@@ -55,7 +55,7 @@ public class Fade : MonoBehaviour
 
 		while (Time.realtimeSinceStartup <= endTime)
         {
-            Debug.Log("FadeOut");
+            //Debug.Log("FadeOut");
             cutoutRange = (endTime - Time.realtimeSinceStartup) / time;
 			fade.Range = cutoutRange;
 			yield return endFrame;
@@ -75,7 +75,7 @@ public class Fade : MonoBehaviour
 		var endFrame = new WaitForEndOfFrame ();
 
 		while (Time.realtimeSinceStartup <= endTime) {
-            Debug.Log("Fadein");
+            //Debug.Log("Fadein");
 			cutoutRange = 1 - ((endTime - Time.realtimeSinceStartup) / time);
 			fade.Range = cutoutRange;
 			yield return endFrame;

@@ -22,7 +22,7 @@ public class EnemyMoving_1 : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        Mask = LayerMask.GetMask("Terrain") + LayerMask.GetMask("Entity");
+        Mask = LayerMask.GetMask("Terrain") + LayerMask.GetMask("HitLayer");
         rigid2d = GetComponent<Rigidbody2D>();
         status = GetComponent<EnemyStatus>().status;
         switch (moveType)
@@ -82,10 +82,11 @@ public class EnemyMoving_1 : MonoBehaviour {
             angle = (360 + angle + status.MoveSpeed * Random.Range(-30f, 30f)) % 360;
             rigid2d.AddForce(Quaternion.Euler(0, 0, angle * facing) * new Vector2(status.MoveSpeed, 0));
             BoxCollider2D HitBox = GetComponent<BoxCollider2D>();
-            if (TerrainNearby
+            LayerMask NewMask = LayerMask.GetMask("Terrain");
+            if (ObjectDetect
                 (new Vector3(HitBox.size.x / 2, 0) * facing,
-                Vector2.right * facing,
-                Mask.value))
+                Vector2.right * facing,NewMask
+                ,0.5f) != gameObject)
             {
                 rigid2d.velocity = new Vector2(-1 * rigid2d.velocity.x, rigid2d.velocity.y);
                 facing *= -1;
@@ -116,13 +117,11 @@ public class EnemyMoving_1 : MonoBehaviour {
     }
 
     void Flip() {
-        if (rigid2d.velocity.x > 0.1)
+        if (Mathf.Abs(rigid2d.velocity.x) > 0.1)
         {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-        else if (rigid2d.velocity.x < -0.1)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
+            Vector3 scale = transform.localScale;
+            transform.localScale = 
+                new Vector3(Mathf.Sign(rigid2d.velocity.x) * Mathf.Abs(scale.x), scale.y, scale.z);
         }
     }
 

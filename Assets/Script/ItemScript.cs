@@ -20,7 +20,7 @@ public class ItemScript : MonoBehaviour {
         {
             if (Audios != null)
             {
-                Debug.Log("Got : " + score);
+                GameObject.Find("BaseItems").GetComponent<BaseScoreItems>().CurrentCoin += score;
                 Audi.clip = Audios;
                 Audi.Play();
             }

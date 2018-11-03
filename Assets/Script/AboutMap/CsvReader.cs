@@ -12,7 +12,7 @@ public class CsvReader : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        int height = 0;
+        height = 0;
     }
 	// Update is called once per frame
 	void Update () {

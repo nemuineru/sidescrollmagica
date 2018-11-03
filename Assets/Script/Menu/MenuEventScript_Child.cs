@@ -13,7 +13,8 @@ public class MenuEventScript_Child : MonoBehaviour {
 
     public string menuname;
     public Type type;
-    public UnityEngine.SceneManagement.Scene scene;
+    public string SceneName;
+
 
     // Use this for initialization
     void Start () {

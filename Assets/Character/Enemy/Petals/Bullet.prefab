@@ -8,15 +8,15 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
+  m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1984496150614568}
-  m_IsPrefabParent: 1
+  m_IsPrefabAsset: 1
 --- !u!1 &1984496150614568
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4594358476786898}
   - component: {fileID: 212768000280151270}
@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 61492007616024468}
   - component: {fileID: 50479031744235282}
   - component: {fileID: 82890018833257000}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Bullet
   m_TagString: Enemy's Bullet
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
 --- !u!4 &4594358476786898
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1984496150614568}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -49,7 +49,7 @@ Transform:
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1984496150614568}
   m_BodyType: 0
@@ -68,7 +68,7 @@ Rigidbody2D:
 --- !u!61 &61492007616024468
 BoxCollider2D:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1984496150614568}
   m_Enabled: 1
@@ -93,7 +93,7 @@ BoxCollider2D:
 --- !u!82 &82890018833257000
 AudioSource:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1984496150614568}
   m_Enabled: 1
@@ -189,7 +189,7 @@ AudioSource:
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1984496150614568}
   m_Enabled: 1
@@ -206,7 +206,7 @@ Animator:
 --- !u!114 &114830940429909326
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1984496150614568}
   m_Enabled: 1
@@ -214,9 +214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213dd6c8e7f344a4b9f6ddfe2b36e7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletSpeed: 1
-  RemainTime: 3
-  FirePower: 0
+  BulletSpeed: 1.6
+  RemainTime: 8
+  FirePower: 1
   HitEffect: {fileID: 0}
   PassThrough:
     serializedVersion: 2
@@ -225,7 +225,7 @@ MonoBehaviour:
 --- !u!212 &212768000280151270
 SpriteRenderer:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1984496150614568}
   m_Enabled: 1
@@ -256,7 +256,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300012, guid: 5d2d9121fffe6574dba4f025bdaef677, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -267,3 +267,4 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+  m_SpriteSortPoint: 0

@@ -47,7 +47,7 @@ GameObject:
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4517975501781200
 Transform:
@@ -291,8 +291,8 @@ MonoBehaviour:
     Hurt: {fileID: 8300000, guid: 7020c6a09d6a5994580721fd18675da0, type: 3}
     RunDust: {fileID: 1077779363272812, guid: 7dd0c447fc8bfa743b829136896f5dce, type: 2}
   status:
-    Life: 20
-    LifeMax: 20
+    Life: 200
+    LifeMax: 200
     InvisTime: 0
     InvisMaxTime: 1
     speed: 2.4

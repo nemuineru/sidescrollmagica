@@ -26,7 +26,7 @@ public class MenuEventScript_Host : MonoBehaviour {
         {
             switch (SelectedEvent.type) {
                 case MenuEventScript_Child.Type.loadscene:
-                    UnityEngine.SceneManagement.SceneManager.LoadScene(SelectedEvent.scene.buildIndex);
+                    UnityEngine.SceneManagement.SceneManager.LoadScene(SelectedEvent.SceneName);
                     break;
                 case MenuEventScript_Child.Type.stop:
                     Application.Quit();

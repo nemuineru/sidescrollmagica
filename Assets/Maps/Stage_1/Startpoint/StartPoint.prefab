@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CsvResource: {fileID: 4900000, guid: b0dd616e7f2fbc84099a63d44132544c, type: 3}
-  height: 1992
+  height: 0
 --- !u!114 &114617858242210732
 MonoBehaviour:
   m_ObjectHideFlags: 1
