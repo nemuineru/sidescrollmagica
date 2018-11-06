@@ -39,6 +39,7 @@ public class WeaponBehavior : MonoBehaviour
             if (collision.GetComponent<EnemyHitComp_RefTo>() != null)
             {
                 status = collision.transform.GetComponent<EnemyHitComp_RefTo>().Status;
+                GameObject.Find("Status").GetComponent<StatusComp>().TargetedEnemy = status.gameObject;
                 status.status.hp -= FirePower;
             }
         }

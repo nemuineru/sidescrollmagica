@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/nemuru/Documents/Unity Compiled/Magear V0.05/Magica_v0.05_pre_alpha.exe
+C:/Users/gakusei/Documents/Unity_Compailed/Magear_V0.05/Magica_v0.05_pre_alpha.exe
 SceneListBegin?
 Assets/Scenes/TitleScreen.unity
 Assets/Scenes/Stage/StartPoint.unity

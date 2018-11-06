@@ -202,7 +202,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status:
-    hp: 4
+    hp: 3
+    Maxhp: 3
     coins: 75
     MoveSpeed: 0.5
     AttackSpeed: 0

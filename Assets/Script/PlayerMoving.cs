@@ -15,7 +15,7 @@ public class PlayerMoving : MonoBehaviour {
     [System.Serializable]
     public class Status
     {
-        public int Life, LifeMax;
+        public float Life, LifeMax;
         public float InvisTime, InvisMaxTime;
         public float speed = 0, jumppower = 0, CastTime_SP = 0, CastTime_EX = 0;
         public int AirjumpNum = 1;

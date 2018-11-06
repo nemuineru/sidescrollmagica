@@ -40,6 +40,7 @@ public class EnemyAttacking_1 : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        if(Type == AttackType.Collisions)
         foreach (BoxCollider2D Collider in Colliders)
         {
             result = new Collider2D[10];

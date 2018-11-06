@@ -6,7 +6,8 @@ public class EnemyStatus : MonoBehaviour {
     public Status status;
     [System.Serializable]
     public class Status {
-        public int hp, coins;
+        public float hp, Maxhp;
+        public int coins;
         public float MoveSpeed, AttackSpeed;
         public GameObject DeathExplod;
         public GameObject[] Itemcontain;
