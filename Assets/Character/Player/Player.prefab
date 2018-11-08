@@ -293,6 +293,8 @@ MonoBehaviour:
   status:
     Life: 200
     LifeMax: 200
+    Spirit: 4.5
+    SpiritMax: 8
     InvisTime: 0
     InvisMaxTime: 1
     speed: 2.4

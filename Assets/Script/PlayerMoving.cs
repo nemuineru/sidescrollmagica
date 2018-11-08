@@ -16,6 +16,7 @@ public class PlayerMoving : MonoBehaviour {
     public class Status
     {
         public float Life, LifeMax;
+        public float Spirit, SpiritMax;
         public float InvisTime, InvisMaxTime;
         public float speed = 0, jumppower = 0, CastTime_SP = 0, CastTime_EX = 0;
         public int AirjumpNum = 1;

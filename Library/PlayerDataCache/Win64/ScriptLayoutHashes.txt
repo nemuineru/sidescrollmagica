@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/gakusei/Documents/Unity_Compailed/Magear_V0.05/Magica_v0.05_pre_alpha.exe
+C:/Users/nemuru/Documents/Unity Compiled/Magear V0.05/Magica_v0.05_pre_alpha.exe
 SceneListBegin?
 Assets/Scenes/TitleScreen.unity
 Assets/Scenes/Stage/StartPoint.unity
@@ -134,7 +134,7 @@ e1ea12ca952c81d81a9a21fdf34446ed UnityEngine.HoloLens.dll:UnityEngine.EventSyste
 dfd33ff9ae3ce8d7ca1f22b475ec2387 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 cc6ec4e3587e31cbad00935978dce796 Assembly-CSharp.dll:.TileGenerate
 96f3ea9f23b6f08e60710ebb4af49174 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
-4a378bd0e87fe55a7cb72a563bf2f4fe Assembly-CSharp.dll:.StatusComp
+693acf3b1d629c0a56e00bb90d459b4b Assembly-CSharp.dll:.StatusComp
 f16835701e71dd5d6fb1fed4b7aff1d8 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 3b71cb3524a4bc67aa549383b47f5775 Assembly-CSharp.dll:.MenuEventScript_Child
 52380a0b7136ef4479706f4248022e88 Assembly-CSharp.dll:.UniqueEnemyMoving_1
@@ -189,10 +189,11 @@ aac9c55ae7ba4b95b852a7d9c191acd1 Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 587ce845e452149d91a07bd2d2098d8c Assembly-CSharp.dll:.MapObjectComps
 e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 6873a49e72e25945f49f473dba70b596 Assembly-CSharp.dll:.GateManager
-4a72dca5e0fcdbc2b4f972bd0eb15577 Assembly-CSharp.dll:.PlayerMoving
+b27a737af9a0df6386ee7294ce32fa02 Assembly-CSharp.dll:.PlayerMoving
 6551bf8dda4fbc2b9c4592f3eb2ed233 Assembly-CSharp.dll:.StageComp
 2f9af06a78208a67db480e9bfed4a076 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 9318334b30e9f195f573b2ce00154b95 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
-49fb0a2bdb126695289cbb4238d40f05 Assembly-CSharp.dll:.EnemyStatus
+4aab71d05e7e8b135c6f07eef7309feb Assembly-CSharp.dll:.EnemyStatus
 ece1fb556cb1c5b652b1a3d2e00f1bae Assembly-CSharp.dll:.MenuEventScript_Host
+3cb26b97a30429d33be70e4e7c41abf7 Assembly-CSharp.dll:.LifeGaugeDecreasement
