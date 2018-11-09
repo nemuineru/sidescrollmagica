@@ -29,9 +29,9 @@ Material:
     m_Floats:
     - PixelSnap: 0
     - _EnableExternalAlpha: 0
-    - _Hue: 29.93837
-    - _Sat: 1
-    - _Val: 1
+    - _Hue: -228
+    - _Sat: 1.25
+    - _Val: 1.25
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}

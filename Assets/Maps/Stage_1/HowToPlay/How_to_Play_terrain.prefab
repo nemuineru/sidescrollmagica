@@ -187,7 +187,7 @@ MonoBehaviour:
     TransMultiply: {x: 1, y: 1}
     Shift: {x: 0, y: 0}
     MovesTo: {x: 0, y: 0}
-    isBGloops: 0
+    isBGloops: 1
     isStableOnCamera: 0
     isStableOnStage: 0
   cameraToScript: {fileID: 0}

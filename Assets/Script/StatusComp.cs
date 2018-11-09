@@ -12,16 +12,23 @@ public class StatusComp : MonoBehaviour {
     Text text;
     PlayerMoving PlayerStatus;
 
-    GameObject[] MPGaugeObjects; Vector2 Orbsize;
-    Material[] GaugeMat;
+    Vector2 Orbsize;
+    struct OrbGauge
+    {
+       public GameObject MPGaugeObjects;
+       public Material GaugeMat;
+       public Image GaugeImage;
+    }
+
+    OrbGauge[] gauge;
+
     void Awake()
     {
         Player = GameObject.Find("Player");
         PlayerStatus = Player.GetComponent<PlayerMoving>();
         text = GetComponent<Text>();
         MPOrbsResources = Resources.Load("UI/MpsCharge") as GameObject;
-        MPGaugeObjects = new GameObject[Mathf.CeilToInt(PlayerStatus.status.SpiritMax)];
-        GaugeMat = new Material[Mathf.CeilToInt(PlayerStatus.status.SpiritMax)];
+        gauge = new OrbGauge[Mathf.CeilToInt(PlayerStatus.status.SpiritMax)];
 
         Orbsize = MPOrbsResources.GetComponent<GaugeSettles>().Gauges.GetComponent<Image>().sprite.bounds.size;
     }
@@ -29,32 +36,37 @@ public class StatusComp : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (MPGaugeObjects.Length != Mathf.CeilToInt(PlayerStatus.status.SpiritMax))
+        //SPゲージ増減
+        if (gauge.Length != Mathf.CeilToInt(PlayerStatus.status.SpiritMax))
         {
-            foreach (GameObject Gauges in MPGaugeObjects) {
-                Destroy(Gauges);
+            foreach (OrbGauge orbGauge in gauge) {
+                Destroy(orbGauge.MPGaugeObjects);
             }
-            MPGaugeObjects = new GameObject[Mathf.CeilToInt(PlayerStatus.status.SpiritMax)];
+            gauge = new OrbGauge[Mathf.CeilToInt(PlayerStatus.status.SpiritMax)];
         }
-        for (int i = 0; i < MPGaugeObjects.Length; i++) {
-            if (MPGaugeObjects[i] == null) {
-                MPGaugeObjects[i] = Instantiate
+        for (int i = 0; i < gauge.Length; i++)
+        {
+            if (gauge[i].MPGaugeObjects == null) {
+                gauge[i].MPGaugeObjects = Instantiate
                     (MPOrbsResources,
-                    MPPos.transform.position + new Vector3(Orbsize.x * i  * 18,0,0),
+                    MPPos.transform.position + new Vector3(Orbsize.x * i  * 12,0,0),
                     Quaternion.AngleAxis(0,Vector3.zero),
-                    MPPos.transform);                
+                    MPPos.transform);
+                gauge[i].GaugeImage = gauge[i].MPGaugeObjects.
+                    GetComponent<GaugeSettles>().Gauges.GetComponent<Image>();
+                gauge[i].GaugeMat = Instantiate(gauge[i].GaugeImage.material);
             }
+            gauge[i].MPGaugeObjects.GetComponent<GaugeSettles>().Amount =
+                Mathf.Clamp(PlayerStatus.status.Spirit - i, 0, 1f);
+            gauge[i].GaugeMat.SetFloat
+                ("_Hue", -i * 12f);
+            gauge[i].GaugeImage.material = gauge[i].GaugeMat;
 
-            MPGaugeObjects[i].GetComponent<GaugeSettles>().Amount = 
-                Mathf.Clamp(PlayerStatus.status.Spirit - i,0,1f);
-            Image GaugeImage = MPGaugeObjects[i].GetComponent<GaugeSettles>().Gauges.GetComponent<Image>();
-            GaugeMat[i] = GaugeImage.material;
-            GaugeMat[i].SetFloat
-                ("_Hue",Mathf.Repeat(GaugeMat[i].GetFloat("_Hue") +
-                i * 2.5f * Time.deltaTime,360));
+
         }
 
 
+        //HPゲージ
         HP.GetComponent<Image>().fillAmount =
         (float)PlayerStatus.status.Life / PlayerStatus.status.LifeMax;
         text.text = PlayerStatus.status.Life + "/" +
@@ -74,8 +86,7 @@ public class StatusComp : MonoBehaviour {
         }
         ChargeGauge.GetComponent<Image>().fillAmount = type_SP + type_EX;
 
-
-
+        //相手のHPゲージ
         if (TargetedEnemy != null)
         {
             EnemyLifeBar_Hontai.SetActive(true);
