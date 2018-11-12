@@ -154,7 +154,7 @@ MonoBehaviour:
     MovesTo: {x: 0, y: 0}
     isBGloops: 0
     isStableOnCamera: 0
-    isStableOnStage: 1
+    isStableOnStage: 0
   cameraToScript: {fileID: 0}
 --- !u!114 &114372490886610676
 MonoBehaviour:

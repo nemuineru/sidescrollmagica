@@ -263,6 +263,14 @@ Prefab:
       propertyPath: status.Spirit
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1542244758565378, guid: c37bd4180c2c14345bf958c50de47be2, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033553348641478, guid: c37bd4180c2c14345bf958c50de47be2, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c37bd4180c2c14345bf958c50de47be2, type: 2}
   m_IsPrefabAsset: 0
@@ -945,6 +953,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114712908231695512, guid: 50e85886f03cf9e4abbeb7e145482559,
+        type: 2}
+      propertyPath: FirstComp
+      value: 
+      objectReference: {fileID: 114301975191997484, guid: a5f464bedd305334ea09319d748701b0,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50e85886f03cf9e4abbeb7e145482559, type: 2}
   m_IsPrefabAsset: 0
