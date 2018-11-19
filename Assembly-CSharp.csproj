@@ -80,6 +80,7 @@
     <Compile Include="Assets\Script\Enemy'sScript\EnemyHitComp_RefTo.cs" />
     <Compile Include="Assets\Script\Enemy'sScript\EnemyMoving_1.cs" />
     <Compile Include="Assets\Script\Enemy'sScript\EnemyStatus.cs" />
+    <Compile Include="Assets\Script\GetCopyOf.cs" />
     <Compile Include="Assets\Script\ItemScript.cs" />
     <Compile Include="Assets\Script\Menu\BaseScoreItems.cs" />
     <Compile Include="Assets\Script\Menu\GaugeSettles.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Assets\Script\Menu\MenuEventScript_Host.cs" />
     <Compile Include="Assets\Script\Menu\Transition_StartUP.cs" />
     <Compile Include="Assets\Script\OneShotAnim.cs" />
+    <Compile Include="Assets\Script\OneShotEvent.cs" />
     <Compile Include="Assets\Script\PlayerMoving.cs" />
     <Compile Include="Assets\Script\PlayerStart.cs" />
     <Compile Include="Assets\Script\ScenesUniqueObject.cs" />
@@ -316,6 +318,9 @@
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/nemuru/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
+    <Reference Include="BasicSerializer">
+      <HintPath>C:/Users/nemuru/Documents/GitHub/SideScrollMagica/Assets/Plugins/Vexe/Runtime/FastSave/Serializer/BasicSerializer.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Main/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
     </Reference>
@@ -343,6 +348,12 @@
     <Reference Include="Boo.Lang">
       <HintPath>C:/Program Files/Unity/Main/Editor/Data/MonoBleedingEdge/lib/mono/unity/Boo.Lang.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{D3DFF9A8-2F23-B097-1ED2-762ADAB4581F}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

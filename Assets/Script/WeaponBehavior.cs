@@ -1,14 +1,22 @@
-﻿using System.Collections;
+﻿/*
+Copyright (c) 2014 vexe
+Released under the MIT license
+http://opensource.org/licenses/mit-license.php 
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Vexe.Runtime.Types;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D), typeof(AudioSource))]
-public class WeaponBehavior : MonoBehaviour
+public class WeaponBehavior : BaseBehaviour
 {
     public float BulletSpeed , RemainTime;
     public int FirePower;
     public GameObject HitEffect;
     public LayerMask PassThrough;
+    public OneShotEvent eventstart;
     public Type type;
     public enum Type
     {
@@ -65,6 +73,9 @@ public class WeaponBehavior : MonoBehaviour
                 if (HitEffect != null)
                     Instantiate(HitEffect, transform.position, Quaternion.Euler(0, 0, 0));
             }
+        if (eventstart != null) {
+
+        }
     }
 
     void Start()
@@ -128,3 +139,4 @@ public class WeaponBehavior : MonoBehaviour
         }
     }
 }
+
