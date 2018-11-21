@@ -334,3 +334,5 @@ C:\Users\nemuru\Documents\GitHub\SideScrollMagica\Temp\bin\Debug\UnityEngine.Spa
 C:\Users\nemuru\Documents\GitHub\SideScrollMagica\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\nemuru\Documents\GitHub\SideScrollMagica\obj\Debug\Assembly-CSharp.dll
 C:\Users\nemuru\Documents\GitHub\SideScrollMagica\obj\Debug\Assembly-CSharp.pdb
+C:\Users\gakusei\Documents\GitHub\sidescrollmagica\Temp\bin\Debug\BasicSerializer.dll
+C:\Users\gakusei\Documents\GitHub\sidescrollmagica\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb

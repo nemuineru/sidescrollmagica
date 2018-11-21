@@ -5,9 +5,10 @@ http://opensource.org/licenses/mit-license.php
 */
 
 using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using Vexe.Runtime.Types;
+using Vexe.FastSave;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D), typeof(AudioSource))]
 public class WeaponBehavior : BaseBehaviour
@@ -74,7 +75,8 @@ public class WeaponBehavior : BaseBehaviour
                     Instantiate(HitEffect, transform.position, Quaternion.Euler(0, 0, 0));
             }
         if (eventstart != null) {
-
+            string output = eventstart.gameObject.SaveHierarchyToMemory().GetString();
+            Load.HierarchyFromMemory(output.GetBytes(),new GameObject(eventstart.name));
         }
     }
 
