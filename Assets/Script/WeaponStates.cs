@@ -6,6 +6,7 @@ public class WeaponStates : MonoBehaviour {
     [System.Serializable]
     public class Weapon {
         public GameObject Short, Long, Super;
+        public GameObject FlashB, ShortB, LongB, SuperB;
     }
     public Weapon weapon;
 

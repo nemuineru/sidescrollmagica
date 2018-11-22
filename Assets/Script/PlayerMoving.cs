@@ -19,6 +19,7 @@ public class PlayerMoving : MonoBehaviour {
         public float Spirit, SpiritMax;
         public float InvisTime, InvisMaxTime;
         public float speed = 0, jumppower = 0, CastTime_SP = 0, CastTime_EX = 0;
+        public float BombTime_SP = 0, BombTime_EX = 0;
         public int AirjumpNum = 1;
         public float castingTime;
     }
@@ -88,10 +89,16 @@ public class PlayerMoving : MonoBehaviour {
 
 
     GameObject SelectedMagic;
+    GameObject SelectedBomb;
+    [HideInInspector]
+    public float BombPressed = 0;
+    [HideInInspector]
+    public bool bombpressed = false;
     // キャラの動き。
     IEnumerator Moving() {
         float AttackPressed = 0;
         string MagType = "Short";
+        string BombType = "Short";
         while (Application.isPlaying)
         {
             
@@ -117,6 +124,28 @@ public class PlayerMoving : MonoBehaviour {
                     , Quaternion.Euler(0f, 0f, 0f));
                 Magic.GetComponent<WeaponBehavior>().BulletSpeed *= PlayerFacing.x;
             }
+            if (Input.GetButtonUp("Bomb"))
+            {
+                switch (BombType)
+                {
+                    case "Short":
+                        SelectedMagic = weaponStates.weapon.ShortB;
+                        break;
+                    case "Long":
+                        SelectedMagic = weaponStates.weapon.LongB;
+                        break;
+                    case "Super":
+                        SelectedMagic = weaponStates.weapon.SuperB;
+                        break;
+                    default:
+                        break;
+                }
+                GameObject Bomb;
+                /* Bomb = Instantiate(SelectedMagic,
+                    transform.position + (Vector3)PlayerCastPoint * PlayerFacing.x
+                    , Quaternion.Euler(0f, 0f, 0f));
+                //Bomb.GetComponent<WeaponBehavior>().BulletSpeed *= PlayerFacing.x; */
+            }
 
             if (Input.GetButton("Magic"))
             {
@@ -125,6 +154,16 @@ public class PlayerMoving : MonoBehaviour {
             else
             {
                 AttackPressed = 0;
+            }
+            if (Input.GetButton("Bomb"))
+            {
+                BombPressed += Time.deltaTime;
+                bombpressed = true;
+            }
+            else
+            {
+                BombPressed = 0;
+                bombpressed = false;
             }
 
             //AttackPressedの値で出せる魔法が決まる。

@@ -31,7 +31,7 @@ GameObject:
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1542244758565378
 GameObject:
@@ -47,7 +47,7 @@ GameObject:
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4517975501781200
 Transform:
@@ -274,6 +274,10 @@ MonoBehaviour:
     Short: {fileID: 1368282711536402, guid: 276395af064f3364f98e46096ec6937c, type: 2}
     Long: {fileID: 1368282711536402, guid: a56cd6c2cc665844c99c2a90cc6efbf2, type: 2}
     Super: {fileID: 1368282711536402, guid: 4273c947b3aa3d64b8abe9489f971e3d, type: 2}
+    FlashB: {fileID: 0}
+    ShortB: {fileID: 0}
+    LongB: {fileID: 0}
+    SuperB: {fileID: 0}
 --- !u!114 &114677491021647814
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -293,20 +297,24 @@ MonoBehaviour:
   status:
     Life: 200
     LifeMax: 200
-    Spirit: 4.5
-    SpiritMax: 8
+    Spirit: 3
+    SpiritMax: 3
     InvisTime: 0
     InvisMaxTime: 1
     speed: 2.4
     jumppower: 5
     CastTime_SP: 0.2
     CastTime_EX: 1
+    BombTime_SP: 2
+    BombTime_EX: 6
     AirjumpNum: 1
     castingTime: 0
   Damaged: 0
   PlayerLDEdge: {x: 0.15, y: -0.12}
   PlayerRDEdge: {x: -0.15, y: -0.12}
   PlayerCastPoint: {x: 0.28, y: 0}
+  BombPressed: 0
+  bombpressed: 0
 --- !u!212 &212372856872707108
 SpriteRenderer:
   m_ObjectHideFlags: 1
