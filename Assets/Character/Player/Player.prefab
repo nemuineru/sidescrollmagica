@@ -47,7 +47,7 @@ GameObject:
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4517975501781200
 Transform:
@@ -274,8 +274,8 @@ MonoBehaviour:
     Short: {fileID: 1368282711536402, guid: 276395af064f3364f98e46096ec6937c, type: 2}
     Long: {fileID: 1368282711536402, guid: a56cd6c2cc665844c99c2a90cc6efbf2, type: 2}
     Super: {fileID: 1368282711536402, guid: 4273c947b3aa3d64b8abe9489f971e3d, type: 2}
-    FlashB: {fileID: 0}
-    ShortB: {fileID: 0}
+    FlashB: {fileID: 1474570584641364, guid: 892b55af503e91748b2a8ec7884030f9, type: 2}
+    ShortB: {fileID: 1259490198264660, guid: 393cb7fc52497ab4abc15194a951daf8, type: 2}
     LongB: {fileID: 0}
     SuperB: {fileID: 0}
 --- !u!114 &114677491021647814
@@ -297,8 +297,8 @@ MonoBehaviour:
   status:
     Life: 200
     LifeMax: 200
-    Spirit: 3
-    SpiritMax: 3
+    Spirit: 9
+    SpiritMax: 9
     InvisTime: 0
     InvisMaxTime: 1
     speed: 2.4

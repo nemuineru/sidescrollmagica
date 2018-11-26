@@ -83,15 +83,15 @@ public class StageScript : MonoBehaviour {
             Height = MapData.csvDatas.ToArray().Length;
             Debug.Log("Y : " + MapData.csvDatas.ToArray().Length);
             baseSprite = Map.DefaultTile.GetComponent<SpriteRenderer>().sprite;
-            Vector2 TransitWorldpos =
-                           new Vector2((TransitTo.x - Length / 2f) * baseSprite.bounds.size.x,
-                           (Height / 2f - TransitTo.y) * baseSprite.bounds.size.y);
-            Player.transform.position = TransitWorldpos;
             InstMap = Instantiate(Map.gameObject);
             currentMap[i] = InstMap.GetComponent<MapGenerate>();
         }
         MapLength = Length;
         MapHeight = Height;
+        Vector2 TransitWorldpos =
+                       new Vector2((TransitTo.x - Length / 2f) * baseSprite.bounds.size.x,
+                       (Height / 2f - TransitTo.y) * baseSprite.bounds.size.y);
+        Player.transform.position = TransitWorldpos;
         Debug.Log("Instaned");
     }
 }

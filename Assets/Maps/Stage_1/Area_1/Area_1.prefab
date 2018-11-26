@@ -269,7 +269,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 1323253588567502, guid: 2a39b1ceaff6fb34789fe716838c1441, type: 2}
+  - {fileID: 1323253588567502, guid: 1b1c7e1c5eb82b84792385534ffb74cf, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -280,6 +280,7 @@ MonoBehaviour:
   DefaultTile: {fileID: 1257601850994892, guid: 2f6cd23cbc941294ba58c4bc633bc9a3,
     type: 2}
   setMapGlobalSize: 1
+  IfMakeFirst_posset: {x: 1, y: 11}
 --- !u!114 &114909065752933458
 MonoBehaviour:
   m_ObjectHideFlags: 1

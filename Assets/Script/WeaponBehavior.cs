@@ -26,6 +26,7 @@ public class WeaponBehavior : BaseBehaviour
         Gravity,
         Chase
     }
+    public Vector2 ShotPoint;
 
     Rigidbody2D rigid2D;
 
@@ -35,7 +36,7 @@ public class WeaponBehavior : BaseBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         bool isHit = true;
-        Debug.Log(((int)Mathf.Pow(2, collision.gameObject.layer) & PassThrough.value));
+        // Debug.Log(((int)Mathf.Pow(2, collision.gameObject.layer) & PassThrough.value));
             if ( ((int)Mathf.Pow(2,collision.gameObject.layer) & PassThrough.value) 
             == (int)Mathf.Pow(2, collision.gameObject.layer)
             || (collision.transform.tag == "Enemy" && tag == "Enemy's Bullet")
@@ -68,7 +69,11 @@ public class WeaponBehavior : BaseBehaviour
                isHit = true;
             }
         }
-            if (isHit == true)
+        if (collision.tag == "Shutters" && tag == "Enemy's Bullet")
+        {
+            isHit = true;
+        }
+        if (isHit == true)
             {
                 Destroy(gameObject);
                 if (HitEffect != null)
@@ -117,6 +122,7 @@ public class WeaponBehavior : BaseBehaviour
     IEnumerator S_Straight()
     {
         rigid2D.velocity = new Vector2(BulletSpeed,0);
+        transform.localScale = new Vector3(transform.localScale.x * Mathf.Sign(rigid2D.velocity.x), transform.localScale.y , 1);
         yield return null;
     }
 
@@ -128,14 +134,53 @@ public class WeaponBehavior : BaseBehaviour
             Vector2 ToPos = (Player.transform.position - transform.position);
             rigid2D.velocity = ToPos.normalized * BulletSpeed;
         }
+        //ホーミング弾｡
+        else if (tag == "Player's Bullet") {
+                Vector2 randVec = new Vector2(UnityEngine.Random.Range(-2f,2f), UnityEngine.Random.Range(-2f, 2f)).normalized * 2f;
+            rigid2D.velocity = randVec;
+            GameObject[] Enemys = GameObject.FindGameObjectsWithTag("Enemy");
+            GameObject NearestEnemy = null;
+            float distanceNearEnemy = Mathf.Infinity;
+            foreach (GameObject Enemy in Enemys) {
+                float distanceInThis = Mathf.Abs((transform.position - Enemy.transform.position).magnitude);
+                if (distanceInThis < distanceNearEnemy) {
+                    distanceNearEnemy = distanceInThis;
+                    NearestEnemy = Enemy;
+                }
+            }
+            while (distanceNearEnemy > 0.4f && NearestEnemy) {
+                Quaternion Rotate = Quaternion.Euler(0f, 0f, Vector2.SignedAngle(Vector2.right, transform.position - NearestEnemy.transform.position));
+                rigid2D.velocity += (Vector2)(Rotate * -Vector2.right * Time.deltaTime * Mathf.Abs(BulletSpeed) * 40f);
+                if (rigid2D.velocity.magnitude > Mathf.Abs(BulletSpeed)) {
+                    rigid2D.velocity = rigid2D.velocity.normalized * Mathf.Abs(BulletSpeed);
+                }
+                if (rigid2D.velocity.y != 0 && rigid2D.velocity.x != 0)
+                    transform.rotation = Quaternion.Euler(0, 0,
+                        Mathf.Rad2Deg * Mathf.Asin(rigid2D.velocity.y / rigid2D.velocity.x));
+                else {
+                    transform.rotation = Quaternion.Euler(0, 0,
+                        180);
+                }
+                yield return null;
+            }
+            if (rigid2D.velocity.y != 0 && rigid2D.velocity.x != 0)
+                transform.rotation = Quaternion.Euler(0, 0,
+                    Mathf.Rad2Deg * Mathf.Asin(rigid2D.velocity.y / rigid2D.velocity.x));
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, 0,
+                    180);
+            }
+        }
         yield return null;
     }
 
     IEnumerator S_Gravity()
     {
         rigid2D.velocity = new Vector2(BulletSpeed, Mathf.Abs(BulletSpeed / 2));
-        while (Application.isPlaying){
-            transform.rotation = Quaternion.Euler(0,0,
+        while (Application.isPlaying)
+        {
+            transform.rotation = Quaternion.Euler(0, 0,
                 Mathf.Rad2Deg * Mathf.Asin(rigid2D.velocity.normalized.y / rigid2D.velocity.normalized.x));
             yield return null;
         }

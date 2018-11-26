@@ -6,6 +6,7 @@ public class ItemScript : MonoBehaviour {
     public int score;
     public AudioClip Audios;
 
+    float RemainTime;
     GameObject GlobalSC;
     AudioSource Audi;
     // Use this for initialization
@@ -31,6 +32,12 @@ public class ItemScript : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         transform.rotation = Quaternion.Euler(0, 0, 0);
+        if (RemainTime > 8f)
+        {
+            Destroy(gameObject);
+        }
+        else
+            RemainTime += Time.deltaTime;
     }
 
 

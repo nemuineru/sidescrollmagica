@@ -118,6 +118,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213dd6c8e7f344a4b9f6ddfe2b36e7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 15416
+  dbg: 0
+  Prefs:
+    _Buckets: ffffffffffffffff010000000300000004000000ffffffffffffffff
+    _HashCodes: 5ba3ac63dc6e1808645bed494dbd560d4ebd560d0000000000000000
+    _Next: ffffffffffffffff0000000002000000ffffffff0000000000000000
+    _Count: 5
+    _Version: 616
+    _FreeList: -1
+    _FreeCount: 0
+    _Keys: 5ba3ac63dc6e1888645bedc94dbd560d4ebd560d0000000000000000
+    _Values:
+    - ValueString: 
+      ValueFloat: 4
+      Type: 0
+    - ValueString: 
+      ValueFloat: 10
+      Type: 0
+    - ValueString: 
+      ValueFloat: 0
+      Type: 2
+    - ValueString: 
+      ValueFloat: 14
+      Type: 1
+    - ValueString: 
+      ValueFloat: 145
+      Type: 1
+    - ValueString: 
+      ValueFloat: 0
+      Type: 0
+    - ValueString: 
+      ValueFloat: 0
+      Type: 0
   BulletSpeed: 6
   RemainTime: 3
   FirePower: 3
@@ -125,7 +158,8 @@ MonoBehaviour:
   PassThrough:
     serializedVersion: 2
     m_Bits: 256
-  type: 0
+  eventstart: {fileID: 0}
+  type: 1
 --- !u!212 &212971003403649946
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -10,6 +10,7 @@ public class MapGenerate : MonoBehaviour {
     public GameObject[] MapChips;
     public GameObject DefaultTile;
     public bool setMapGlobalSize;
+    public Vector2Int IfMakeFirst_posset;
 
     GameObject[,] maps;
 
@@ -35,6 +36,8 @@ public class MapGenerate : MonoBehaviour {
 
         MapLength = MapData.csvDatas[0].Length;
         MapHeight = MapData.csvDatas.Count;
+        GameObject System = GameObject.Find("Systems");
+        System.GetComponent<StageScript>().MapHeight = MapHeight;
         //マップの高さと長さをCSVファイルから読み取る
 
 
@@ -104,6 +107,9 @@ public class MapGenerate : MonoBehaviour {
         Camera.main.GetComponent<CameraToScript>().CameraInstaTransit
                (GameObject.Find("Systems").GetComponent<StageScript>().TransitTo, new Vector2(MapLength, MapHeight));
         //カメラの即時移動｡
+        if (IfMakeFirst_posset.x != 0 && IfMakeFirst_posset.y != 0) {
+            GameObject.Find("Systems").GetComponent<StageScript>().TransitTo = IfMakeFirst_posset;
+        }
     }
 	
 	// Update is called once per frame

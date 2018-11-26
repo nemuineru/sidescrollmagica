@@ -118,6 +118,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213dd6c8e7f344a4b9f6ddfe2b36e7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 14528
+  dbg: 0
+  Prefs:
+    _Buckets: 02000000ffffffff01000000
+    _HashCodes: d337ac6354031808dcefec49
+    _Next: ffffffffffffffff00000000
+    _Count: 3
+    _Version: 525
+    _FreeList: -1
+    _FreeCount: 0
+    _Keys: d337ac6354031888dcefecc9
+    _Values:
+    - ValueString: 
+      ValueFloat: 4
+      Type: 0
+    - ValueString: 
+      ValueFloat: 10
+      Type: 0
+    - ValueString: 
+      ValueFloat: 0
+      Type: 2
   BulletSpeed: 5
   RemainTime: 3
   FirePower: 1

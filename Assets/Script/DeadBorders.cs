@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class DeadBorders : MonoBehaviour {
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.gameObject.name == "Player")
         {
             StageScript stage = GameObject.Find("Systems").GetComponent<StageScript>();
             
             collision.transform.position =
                                new Vector2((stage.TransitTo.x - stage.MapLength / 2f) * stage.baseSprite.bounds.size.x,
-                               (stage.MapHeight / 2f - stage.TransitTo.y) * stage.baseSprite.bounds.size.y);
+                               ((stage.MapHeight / 2f) - stage.TransitTo.y) * stage.baseSprite.bounds.size.y);
+            Debug.Log(collision.transform.position.ToString());
+            Debug.Log("Dead!");
         }
     }
 

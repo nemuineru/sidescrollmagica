@@ -98,14 +98,15 @@ public class PlayerMoving : MonoBehaviour {
     IEnumerator Moving() {
         float AttackPressed = 0;
         string MagType = "Short";
-        string BombType = "Short";
+        string BombType = "flash";
         while (Application.isPlaying)
         {
-            
+            //通常攻撃
             if (Input.GetButtonUp("Magic"))
             {
                 Vector2 PlayerFacing = new Vector3(1f, 0f) * transform.localScale.x;
-                switch(MagType){
+                switch (MagType)
+                {
                     case "Short":
                         SelectedMagic = weaponStates.weapon.Short;
                         break;
@@ -124,27 +125,56 @@ public class PlayerMoving : MonoBehaviour {
                     , Quaternion.Euler(0f, 0f, 0f));
                 Magic.GetComponent<WeaponBehavior>().BulletSpeed *= PlayerFacing.x;
             }
-            if (Input.GetButtonUp("Bomb"))
+            //大魔法攻撃
+            if (status.Spirit > 0)
             {
-                switch (BombType)
+                if (Input.GetButtonDown("Bomb"))
                 {
-                    case "Short":
-                        SelectedMagic = weaponStates.weapon.ShortB;
-                        break;
-                    case "Long":
-                        SelectedMagic = weaponStates.weapon.LongB;
-                        break;
-                    case "Super":
-                        SelectedMagic = weaponStates.weapon.SuperB;
-                        break;
-                    default:
-                        break;
+                    SelectedBomb = weaponStates.weapon.FlashB;
+                    GameObject Bomb;
+                    Bomb = Instantiate(SelectedBomb,
+                        transform.position
+                        , Quaternion.Euler(0f, 0f, 0f));
+                    Bomb.GetComponent<WeaponBehavior>().BulletSpeed *= PlayerFacing.x;
                 }
-                GameObject Bomb;
-                /* Bomb = Instantiate(SelectedMagic,
-                    transform.position + (Vector3)PlayerCastPoint * PlayerFacing.x
-                    , Quaternion.Euler(0f, 0f, 0f));
-                //Bomb.GetComponent<WeaponBehavior>().BulletSpeed *= PlayerFacing.x; */
+                if (Input.GetButtonUp("Bomb"))
+                {
+                    switch (BombType)
+                    {
+                        case "Short":
+                            if (weaponStates.weapon.ShortB && status.Spirit >= 1)
+                            {
+                                SelectedBomb = weaponStates.weapon.ShortB;
+                                status.Spirit -= 1;
+                            }
+                            break;
+                        case "Long":
+                            if (weaponStates.weapon.LongB && status.Spirit >= 2)
+                            {
+                                SelectedBomb = weaponStates.weapon.LongB;
+                                status.Spirit -= 2;
+                            }
+                            break;
+                        case "Super":
+                            if (weaponStates.weapon.SuperB && status.Spirit >= 3)
+                            {
+                                SelectedBomb = weaponStates.weapon.SuperB;
+                                status.Spirit -= 3;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    if (SelectedBomb != weaponStates.weapon.FlashB)
+                    {
+                        GameObject Bomb;
+                        Bomb = Instantiate(SelectedBomb,
+                            transform.position + (Vector3)PlayerCastPoint * PlayerFacing.x
+                            + (Vector3)SelectedBomb.GetComponent<WeaponBehavior>().ShotPoint * PlayerFacing.x
+                            , Quaternion.Euler(0f, 0f, 0f));
+                        Bomb.GetComponent<WeaponBehavior>().BulletSpeed *= PlayerFacing.x;
+                    }
+                }
             }
 
             if (Input.GetButton("Magic"))
@@ -155,7 +185,7 @@ public class PlayerMoving : MonoBehaviour {
             {
                 AttackPressed = 0;
             }
-            if (Input.GetButton("Bomb"))
+            if (Input.GetButton("Bomb") && status.Spirit > 0)
             {
                 BombPressed += Time.deltaTime;
                 bombpressed = true;
@@ -181,10 +211,28 @@ public class PlayerMoving : MonoBehaviour {
             }
             else
             {
-                SpriteMat.SetFloat("_Val",1f);
+                SpriteMat.SetFloat("_Val", 1f);
                 MagType = "Short";
                 //Debug.Log("Short");
             }
+
+            //Bomb
+            if (BombPressed > status.BombTime_EX)
+            {
+                BombType = "Super";
+                //Debug.Log("Super");
+            }
+            else if (BombPressed > status.BombTime_SP)
+            {
+                BombType = "Long";
+                //Debug.Log("Long");
+            }
+            else
+            {
+                BombType = "Short";
+                //Debug.Log("Short");
+            }
+
 
             // キャラクターのX方向の動作。
             if (Mathf.Abs(rigid2d.velocity.x) < 0.05 && !WallNearby && OnGround)

@@ -187,7 +187,7 @@ MonoBehaviour:
     TransMultiply: {x: 1, y: 1}
     Shift: {x: 0, y: 0}
     MovesTo: {x: 0, y: 0}
-    isBGloops: 1
+    isBGloops: 0
     isStableOnCamera: 0
     isStableOnStage: 0
   cameraToScript: {fileID: 0}
@@ -271,6 +271,7 @@ MonoBehaviour:
   DefaultTile: {fileID: 1257601850994892, guid: 2f6cd23cbc941294ba58c4bc633bc9a3,
     type: 2}
   setMapGlobalSize: 1
+  IfMakeFirst_posset: {x: 0, y: 0}
 --- !u!114 &114979096345796280
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -20,7 +20,7 @@ public class OneShotAnim : MonoBehaviour {
 	void Update ()
     {
         AnimatorStateInfo States = Anims.GetCurrentAnimatorStateInfo(0);
-        if (States.normalizedTime >= 1f && !Source.isPlaying) {
+        if (States.normalizedTime >= 1f && !Source.isPlaying && !Source.isPlaying) {
             Destroy(gameObject);
         }
 	}

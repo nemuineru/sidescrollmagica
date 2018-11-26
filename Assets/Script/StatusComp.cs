@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class StatusComp : MonoBehaviour {
 
-    public GameObject HP, MPPos ,ChargeGauge, TargetedEnemyHP, TargetedEnemyHpText, EnemyLifeBar_Hontai;
+    public GameObject HP, MPPos ,ChargeGauge, MpText,TargetedEnemyHP, TargetedEnemyHpText, EnemyLifeBar_Hontai;
     GameObject Player,  MPOrbsResources;
     [HideInInspector]
     public GameObject TargetedEnemy;
@@ -36,6 +36,9 @@ public class StatusComp : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButton("Menu")){
+            Application.Quit();
+        }
         //SPゲージ増減
         if (gauge.Length != Mathf.CeilToInt(PlayerStatus.status.SpiritMax))
         {
@@ -61,9 +64,9 @@ public class StatusComp : MonoBehaviour {
             gauge[i].GaugeMat.SetFloat
                 ("_Hue", -i * 12f);
             gauge[i].GaugeImage.material = gauge[i].GaugeMat;
-
-
         }
+
+        MpText.GetComponent<Text>().text = PlayerStatus.status.Spirit.ToString();
 
 
         //HPゲージ
