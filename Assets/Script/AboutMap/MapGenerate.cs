@@ -42,40 +42,60 @@ public class MapGenerate : MonoBehaviour {
 
 
         GameObject Room = gameObject;
-        Room.layer = LayerMask.NameToLayer("Terrain");
-        Room.AddComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-        CompositeCollider2D CpCol2D =  Room.AddComponent<CompositeCollider2D>();
-        CpCol2D.geometryType = CompositeCollider2D.GeometryType.Polygons;
-        CpCol2D.vertexDistance = 0.16f;
-        //CompositColliderですべてのコリダーを設定｡
+        GameObject[] Terrains = new GameObject[MapChips.Length];
+        int ChipRooms = 0;
+        foreach (GameObject Chip in  MapChips)
+        {
+            if (!Chip) {
+                ChipRooms++;
+            }
+            else
+            {
+                GameObject Terrain = new GameObject("Terrain " + ChipRooms);
+                Terrains[ChipRooms] = Terrain;
+                Debug.Log(ChipRooms.ToString());
+                Terrains[ChipRooms].AddComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                CompositeCollider2D CpCol2D = Terrains[ChipRooms].AddComponent<CompositeCollider2D>();
+                CpCol2D.geometryType = CompositeCollider2D.GeometryType.Polygons;
+                CpCol2D.vertexDistance = 0.16f;
+                if (Chip.GetComponent<TileGenerate>())
+                {
+                    CpCol2D.sharedMaterial = Chip.GetComponent<TileGenerate>().property.physicMaterials;
+                }
+                Terrains[ChipRooms].layer = Chip.layer;
+                Terrains[ChipRooms].transform.parent = Room.transform;
+                ChipRooms++;
+            }
+        }
+        //設定した地形ごとに親を設定してコンポジットコリダーを作る｡
         maps = new GameObject[MapLength, MapHeight];
         //Debug.Log(MapLength + "," + MapHeight);
 
         if(setMapGlobalSize)
         Camera.main.GetComponent<CameraToScript>().WorldSize = new Vector2Int(MapLength,MapHeight);
 
-        for (int j = 0; j < MapHeight; j++)
+        for (int height = 0; height < MapHeight; height++)
         {
             string Debugs = "";
-            for (int i = 0; i < MapLength; i++)
+            for (int lengths = 0; lengths < MapLength; lengths++)
             {
-                Debugs += Convert.ToInt32(MapData.csvDatas[j][i]) + " ";
-                if (Convert.ToInt32(MapData.csvDatas[j][i]) != -1)
+                Debugs += Convert.ToInt32(MapData.csvDatas[height][lengths]) + " ";
+                if (Convert.ToInt32(MapData.csvDatas[height][lengths]) != -1)
                 {
                     Vector2 Worldpos =
-                          new Vector2((i - MapLength / 2f) * sprite.bounds.size.x,
-                          (MapHeight / 2f - j) * sprite.bounds.size.y);
-                    maps[i, j]
-                        = Instantiate(MapChips[Convert.ToInt32(MapData.csvDatas[j][i])],
+                          new Vector2((lengths - MapLength / 2f) * sprite.bounds.size.x,
+                          (MapHeight / 2f - height) * sprite.bounds.size.y);
+                    maps[lengths, height]
+                        = Instantiate(MapChips[Convert.ToInt32(MapData.csvDatas[height][lengths])],
                         new Vector3(Worldpos.x, Worldpos.y, 5),
                         Quaternion.Euler(0, 0, 0)); ;
-                    if (maps[i, j].GetComponent<TileGenerate>() != null)
+                    if (maps[lengths, height].GetComponent<TileGenerate>() != null)
                     {
-                        maps[i, j].GetComponent<TileGenerate>().WorldPositions = new Vector2Int(i, j);
+                        maps[lengths, height].GetComponent<TileGenerate>().WorldPositions = new Vector2Int(lengths, height);
                     }
-                    connectSet.SetTileConnections(maps, i, j,
+                    connectSet.SetTileConnections(maps, lengths, height,
                         MapLength, MapHeight);
-                    maps[i, j].transform.parent = Room.transform;
+                    maps[lengths, height].transform.parent = Terrains[Convert.ToInt32(MapData.csvDatas[height][lengths])].transform;
                     //マップのチップごとに生成して設定｡
                 }
             }

@@ -39,6 +39,7 @@ public class TileGenerate : MonoBehaviour {
         public Vector2Int ConnectTo; //ゲート使用時どこにつながるか
         public bool isContactToGo = true;
         public AudioClip EnteringSound, SteppingSound;//走ったときの音と侵入時の音
+        public PhysicsMaterial2D physicMaterials;
     }
     public int Db_GroupNum, Db_CutNum; 
     public bool[] TileWithin = new bool[9]; //タイル9周辺にタイル存在するか

@@ -125,7 +125,7 @@ MonoBehaviour:
     _HashCodes: 5ba3ac63dc6e1808645bed494dbd560d4ebd560d0000000000000000
     _Next: ffffffffffffffff0000000002000000ffffffff0000000000000000
     _Count: 5
-    _Version: 616
+    _Version: 618
     _FreeList: -1
     _FreeCount: 0
     _Keys: 5ba3ac63dc6e1888645bedc94dbd560d4ebd560d0000000000000000
@@ -160,6 +160,7 @@ MonoBehaviour:
     m_Bits: 256
   eventstart: {fileID: 0}
   type: 1
+  ShotPoint: {x: 0, y: 0}
 --- !u!212 &212971003403649946
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -194,7 +195,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 5cf02784f8c884e479d65afff04f9730, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
