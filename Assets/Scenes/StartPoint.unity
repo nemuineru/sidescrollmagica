@@ -762,14 +762,19 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 82584051447937750, guid: 50e85886f03cf9e4abbeb7e145482559,
-        type: 2}
-      propertyPath: m_Volume
-      value: 0.421
-      objectReference: {fileID: 0}
-    - target: {fileID: 1896451149584888, guid: 50e85886f03cf9e4abbeb7e145482559, type: 2}
+    - target: {fileID: 1904818712279506, guid: 50e85886f03cf9e4abbeb7e145482559, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114440096659982872, guid: 50e85886f03cf9e4abbeb7e145482559,
+        type: 2}
+      propertyPath: TextResource
+      value: 
+      objectReference: {fileID: 4900000, guid: af1c86f247edf7a4baa0604e94e272a4, type: 3}
+    - target: {fileID: 114440096659982872, guid: 50e85886f03cf9e4abbeb7e145482559,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50e85886f03cf9e4abbeb7e145482559, type: 2}

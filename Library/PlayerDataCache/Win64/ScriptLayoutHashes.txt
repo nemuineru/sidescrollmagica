@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/nemuru/Documents/Unity Compiled/Magear V0.06/Magica_v0.05_pre_alpha.exe
+C:/Users/gakusei/Documents/Unity_Compailed/Magear_V0.10/Magica_v0.05_pre_alpha.exe
 SceneListBegin?
 Assets/Scenes/TitleScreen.unity
 Assets/Scenes/StartPoint.unity
@@ -225,7 +225,7 @@ c6a888215ea5255908e981ba6d3f1956 Assembly-CSharp-firstpass.dll:VFWExamples.ShowE
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 c6a888215ea5255908e981ba6d3f1956 Assembly-CSharp-firstpass.dll:VFWExamples.ComplexDrawingExample
 d2fc8e8cd071928f9931146c5f083f16 Assembly-CSharp-firstpass.dll:VFWExamples.EnumsExample
-4ed6389df89cdcf44e1ce685909bb281 Assembly-CSharp.dll:.EnemyMoving_1
+789bda1b90f6e66839365b6e36d2cb72 Assembly-CSharp.dll:.EnemyMoving_1
 587ce845e452149d91a07bd2d2098d8c Assembly-CSharp.dll:.MapObjectComps
 291619dd3dedc492cbab9ead038d7433 Assembly-CSharp.dll:.TrophyItems
 6ef8bd09f718c04b06e3da8d3e4fd89f Assembly-CSharp-firstpass.dll:VFWExamples.UsingExample

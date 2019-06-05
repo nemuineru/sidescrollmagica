@@ -163,6 +163,12 @@ public class WeaponBehavior : BaseBehaviour
                 }
                 yield return null;
             }
+            if (!NearestEnemy)
+            {
+                rigid2D.velocity = new Vector2(BulletSpeed, 0);
+                transform.localScale = new Vector3(transform.localScale.x * Mathf.Sign(rigid2D.velocity.x), transform.localScale.y, 1);
+                yield return null;
+            }
             if (rigid2D.velocity.y != 0 && rigid2D.velocity.x != 0)
                 transform.rotation = Quaternion.Euler(0, 0,
                     Mathf.Rad2Deg * Mathf.Asin(rigid2D.velocity.y / rigid2D.velocity.x));

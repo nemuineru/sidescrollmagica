@@ -57,9 +57,11 @@ MonoBehaviour:
   - {fileID: 1912195821397720, guid: f32c603bfa5a226469a413df0be778cb, type: 2}
   - {fileID: 1344894916905526, guid: ee09b12f3562a634cba5182def3ec71c, type: 2}
   - {fileID: 1477321246405020, guid: 471f239e29e402944a42ce045ad2cd72, type: 2}
+  - {fileID: 1135656206017564, guid: e067dc31b77acef4d82bbe94a12dfe52, type: 2}
   DefaultTile: {fileID: 1257601850994892, guid: 2f6cd23cbc941294ba58c4bc633bc9a3,
     type: 2}
   setMapGlobalSize: 0
+  IfMakeFirst_posset: {x: 0, y: 0}
 --- !u!114 &114909065752933458
 MonoBehaviour:
   m_ObjectHideFlags: 1

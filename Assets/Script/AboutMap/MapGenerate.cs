@@ -53,7 +53,6 @@ public class MapGenerate : MonoBehaviour {
             {
                 GameObject Terrain = new GameObject("Terrain " + ChipRooms);
                 Terrains[ChipRooms] = Terrain;
-                Debug.Log(ChipRooms.ToString());
                 Terrains[ChipRooms].AddComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                 CompositeCollider2D CpCol2D = Terrains[ChipRooms].AddComponent<CompositeCollider2D>();
                 CpCol2D.geometryType = CompositeCollider2D.GeometryType.Polygons;
@@ -69,17 +68,14 @@ public class MapGenerate : MonoBehaviour {
         }
         //設定した地形ごとに親を設定してコンポジットコリダーを作る｡
         maps = new GameObject[MapLength, MapHeight];
-        //Debug.Log(MapLength + "," + MapHeight);
 
         if(setMapGlobalSize)
         Camera.main.GetComponent<CameraToScript>().WorldSize = new Vector2Int(MapLength,MapHeight);
 
         for (int height = 0; height < MapHeight; height++)
         {
-            string Debugs = "";
             for (int lengths = 0; lengths < MapLength; lengths++)
             {
-                Debugs += Convert.ToInt32(MapData.csvDatas[height][lengths]) + " ";
                 if (Convert.ToInt32(MapData.csvDatas[height][lengths]) != -1)
                 {
                     Vector2 Worldpos =
